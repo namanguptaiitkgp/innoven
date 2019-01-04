@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>{{ investor }} </h1>
+<p>{{investor.fund_size}}</p>
+<p>{{investor.description}}</p>
+<div style="margin-left:20px;margin-top:20px">
+<h4>Live Projects</h4>
+
+<dl>
+{% for project in investor.project_set.all %}
+  <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
+  <dd><strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+{% endfor %}
+</dl>
+</div>
+<div style="margin-left:20px;margin-top:20px">
+<h4>Partners</h4>
+
+<dl>
+{% for partner in investor.partner_set.all %}
+  <dt><a href="{% url 'partner-detail' partner.pk %}">{{partner}}</a> </dt>
+  <dd><strong>Sectors:</strong> {% for sector in partner.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+{% endfor %}
+</dl>
+    <p align="right"><button class="btn btn-primary"><a class="nav-link" href="{% url 'partner_create' %}" style="color: white"> Add Partner </a></button></p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Investor List</h1>
+
+{% if investor_list %}
+  <ul>
+
+  {% for investor in investor_list %}
+    <li>
+      <a href="{{ investor.get_absolute_url }}">
+      {{ investor }}, {{investor.fund_size}}
+      </a>
+    </li>
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>There are no investors available.</p>
+{% endif %}
+        
+        
+        
+{% endblock %}

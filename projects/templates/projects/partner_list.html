@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Partner List</h1>
+
+{% if partner_list %}
+  <ul>
+
+  {% for partner in partner_list %}
+    <li>
+      <a href="{{ partner.get_absolute_url }}">
+      {{ partner }}, {{partner.investor}}
+      </a>
+    </li>
+  {% endfor %}
+
+ </ul>
+       <p align="right"><button class="btn btn-primary"><a class="nav-link" href="{% url 'partner_create' %}" style="color: white"> Add Partner </a></button></p>
+{% else %}
+  <p>There are no partners available.</p>
+{% endif %}
+        
+        
+        
+{% endblock %}

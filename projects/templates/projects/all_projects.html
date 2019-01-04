@@ -1,0 +1,66 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6"><center><h2> Search Results  </h2> </center></div>
+{#    <div class="col-sm-3" ><center> <h4 class="btn btn-primary">  <a href="{% url 'project_create' %}" style="color: white"> Add</a></h4></center></div>#}
+ </div>
+ <div class="row">
+
+     <div class="col-sm-3 ">
+         <h3 align="center">Level 1</h3>
+      {% if project_list1 %}
+
+         <ul class="list-group list-group-flush card">
+          {% for project in project_list1 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.engagement}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+     <div class="col-sm-1 "></div>
+ <div class="col-sm-3 ">
+      
+    <h3 align="center">Level 2</h3>
+     {% if project_list2 %}
+         <ul class="list-group list-group-flush card">
+          {% for project in project_list2 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.stage}}, {{project.engagement}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+     <div class="col-sm-1 "></div>
+ <div class="col-sm-3 ">
+   
+    <h3 align="center">Level 3</h3>
+        {% if project_list3 %}
+         <ul class="list-group list-group-flush card">
+          {% for project in project_list3 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.stage}}, {{project.engagement}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+     <div class="col-sm-1 "></div>
+</div>
+{% endblock %}

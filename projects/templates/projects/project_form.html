@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="col">
+<center><h3>Add Project</h3></center>
+<form action="" method="post" style="max-width:90%">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" class="btn btn-primary "value="Submit" />
+    
+</form>
+
+<br>
+</div>
+{% endblock %}

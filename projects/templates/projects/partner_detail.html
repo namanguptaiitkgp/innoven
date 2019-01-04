@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2 align="center">{{ partner.name }}</h2>
+
+<p><strong>Fund Name:</strong> <a href="{{ partner.investor.get_absolute_url }}">{{ partner.investor }}</a></p> <!-- author detail link not yet defined -->
+  <p> <strong>Designation:</strong> {{ partner.designation }}, {{ partner.location }}</p>
+     <p><strong>Focus:</strong> {% for focus in partner.sector.all %} {{ focus }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  <p><strong>No. of Investments:</strong> {{ partner.investments }}</p>
+    <p><strong>Companies:</strong><br>{{ partner.companies|linebreaksbr }}</p>
+      <p ><a href="{% url 'partner_delete' partner.pk %}" >Delete Partner</a></p>
+   <p align="right"><button class="btn btn-primary"><a href="{% url 'partner_update' partner.pk %}" style="color: white">Update</a></button></p>
+
+
+{% endblock %}

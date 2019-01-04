@@ -1,0 +1,81 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <center>
+    {% load static %} <img src="{% static 'innovenlogo2018.png' %}" class="img-fluid" alt="Responsive image" style="max-height: 40px">
+  <p>Welcome to the CRM Library, owned by <em>InnoVen Capital</em>!</p></center>
+<div class="container">
+  <h4>Record details</h4>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Projects:</strong> {{ num_projects }}</li>
+    <li><strong>Members:</strong> {{ num_member }}</li>
+  </ul>
+<form method="get" action="{% url 'my_search' %}">
+       <fieldset>
+          <legend>Customized Search</legend>
+       <div class="row">
+          <div class="col-sm-2">
+             <label>Funding Stage</label>
+          </div>
+          <div class="col">
+             <select name = "mystage">
+                  {% for stage in stage_list %}
+               <option value = "{{ stage.stage_name }}">{{ stage.stage_name }}</option>
+                   {% endfor %}
+              <option value = "any"> Any </option>
+             </select>
+          </div>
+       </div>
+        <div class="row">
+          <div class="col-sm-2">
+             <label>Investor</label>
+          </div>
+          <div class="col">
+             <select name = "myinvestor">
+                  {% for investor in investor_list %}
+               <option value = "{{ investor.name }}">{{ investor.name }}</option>
+                   {% endfor %}
+              <option value = "any"> Any </option>
+             </select>
+          </div>
+       </div>
+     <div class="row">
+          <div class="col-sm-2">
+             <label>Engagement</label>
+           </div>
+          <div class="col">
+             <select name = "myengagement">
+                  {% for engagement in engagement_list %}
+               <option value = "{{ engagement.engagement_name }}">{{ engagement.engagement_name }}</option>
+                  {% endfor %}
+              <option value = "any"> Any </option>
+             </select>
+          </div>
+     </div>
+      <div class="row">
+          <div class="col-sm-2">
+             <label>Sector</label>
+          </div>
+            <div class="col">
+             <select name = "mysector">
+                  {% for sector in sector_list %}
+               <option value = "{{ sector.name }}">{{ sector.name }}</option>
+                  {% endfor %}
+                 <option value = "any"> Any </option>
+             </select>
+            </div>
+      </div>
+       
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+
+
+       </fieldset>
+
+
+    </form>
+
+</div>
+
+{% endblock %}
