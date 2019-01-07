@@ -174,9 +174,9 @@ class Project(models.Model):
     date = models.DateField(null=True, blank=True, auto_now_add=True)
     description = models.CharField(max_length=500,blank=True)
     metric = models.CharField(max_length=100,blank=True, help_text='Total funding received till date or Company valuation')
-    investor = models.ManyToManyField(Investor)
+    investor = models.ManyToManyField(Investor, blank=True)
     if_other_investor = models.CharField(max_length=100, blank=True)
-    partner = models.ManyToManyField(Partner, help_text='Only Select partners relevant to this engagement')
+    partner = models.ManyToManyField(Partner, blank=True, help_text='Only Select partners relevant to this engagement')
     competitor = models.ManyToManyField(VDcomp)
     amount = models.CharField(max_length=50, blank=True, help_text='Leave blank if you dont know the loan amount yet.')
 
