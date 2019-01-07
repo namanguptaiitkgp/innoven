@@ -4,7 +4,7 @@
 
   <center><h1>{{ project.name }}  </h1></center>
 
-<div class="card">
+<div class="card" style="padding: 20px">
 
 <p>
 <div class="row">
@@ -20,16 +20,16 @@
 </div>
 </p>
     <p><strong>Last Updated:</strong> {{ project.updated_at}} </p>
-
-      <p><strong>Competitors:</strong>  {% for competitor in project.competitor.all %} {{ competitor }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-      <p><strong>Investors:</strong>  {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %}
+    <p><strong>Business Description:</strong> {{ project.description }} | {{ project.metric }}</p>
+      <p><strong>Last Funding:</strong> {{ project.funding_Round }}, Investors: {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %}
       {% if project.if_other_investor %}
     , {{ project.if_other_investor }}
 {% else %} {% endif %}
       </p>
-      <p><strong>Last Funding:</strong> {{ project.funding_Round }}</p> <!-- author detail link not yet defined -->
-      <p><strong>Business Description:</strong> {{ project.description }}</p>
-      <p><strong>Members:</strong> {% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+      <p><strong>Competitors:</strong>  {% for competitor in project.competitor.all %} {{ competitor }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+      <p><strong>Members:</strong> {% for member in project.member.all %} {{ member }}, {% endfor %}
+      Director: {{ project.director }}
+      </p>
 {% if project.amount %}
      <p><strong>Deal Amount:</strong> {{ project.amount }}</p>
 {% else %} {% endif %}
