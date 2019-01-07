@@ -56,7 +56,7 @@ class Engagement(models.Model):
 class Investor(models.Model):
     """Model representing an author."""
     name = models.CharField(max_length=100)
-    description = models.TextField(max_length=1000, help_text='Enter summary')
+    description = models.TextField(max_length=1000)
     fund_size = models.CharField(max_length=100)
 
     def get_absolute_url(self):

@@ -29,18 +29,19 @@ def index(request):
 
 from django.db.models import Q
 from django.contrib.postgres.search import SearchVector
+
 def Search(request):
     query = request.GET.get('q')
-    results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__icontains=query) | Q(investor__icontains=query))
+    results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query))
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
 
 def Allprojects(request):
-
+    result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0"))
     result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1"))
     result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2"))
     result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3"))
-    context = {'project_list1':result1,'project_list2':result2,'project_list3':result3}
+    context = {'project_list0':result0,'project_list1':result1,'project_list2':result2,'project_list3':result3}
     return render(request, 'projects/all_projects.html' , context = context)
 
 def MySearch(request):
