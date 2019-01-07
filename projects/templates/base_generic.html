@@ -10,7 +10,16 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<style>
+    .footer {
 
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+</style>
 
 </head>
 <body  style="background-color: beige">
@@ -77,13 +86,20 @@
     </div>
   {% endif %}
 {% endblock %}
+ </div>
 {% else %}
+
  <div class="container">
   <h4>You are not logged in</h4>
   <a href="{% url 'login' %}">Login</a>
  </div>
 {% endif %}
 {% endblock %}
+
+<div class="footer">
+      <div class="container">
+        <p class="text-muted">Owned by Innoven Capital 2019</p>
+      </div>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

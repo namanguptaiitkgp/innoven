@@ -35,25 +35,26 @@
      <p><strong>Deal Amount:</strong> {{ project.amount }}</p>
 {% else %} {% endif %}
 
-<dl > <strong align="center">Documents:</strong>
+<dl > <strong align="center">Documents:</strong> <a href="{% url 'doc_nw' %}" >Add Document</a>
 {% for doc in project.doc_set.all %}
     <li><a href="{{ doc.document.url }}" style="color: #0b2e13">{{ doc}}</a></li>
 {% endfor %}
-<a href="{% url 'doc_nw' %}" >Add Document</a>
+
 </dl>
 <p align="right"><button class="btn btn-primary" align="right"><a href="{% url 'project_update' project.pk %}" style="color: white">Edit Details</a></button></p>
 </div>
     <hr>
-<dl > <h3 align="center">Comments</h3>
-{% for dialouge in project.dialouge_set.all %}
+<p align="center"><span style="font-size: 1.17em; "><strong>Comments: </strong></span> <a href="{% url 'dialouge_nw' %}">Add comment</a></p>
+<dl>
+    {% for dialouge in project.dialouge_set.all %}
     <dt>{{ dialouge.member }} ({{dialouge.date}}):</dt>
       <dd>{{dialouge}} <a href="{% url 'dialouge_delete' dialouge.pk %}" >Delete</a> </dd>
 
 {% endfor %}
-<a href="{% url 'dialouge_nw' %}">Add comment</a>
+
 </dl>
 
-
+<div class="container"></div>
 
 
 {% endblock %}
