@@ -48,41 +48,41 @@ def Allprojects(request):
 def MySearch(request):
     stage = request.GET.get('mystage')
     engagement = request.GET.get('myengagement')
-    sector = request.GET.get('mysector')
+    member = request.GET.get('mymember')
     investor = request.GET.get('myinvestor')
 
-    if (stage == 'any') & (sector == 'any') & (engagement == 'any') & (investor == 'any'):
+    if (stage == 'any') & (member == 'any') & (engagement == 'any') & (investor == 'any'):
         results = Project.objects.all()
-    elif (sector == 'any') & (engagement == 'any')& (investor == 'any'):
+    elif (member == 'any') & (engagement == 'any')& (investor == 'any'):
         results = Project.objects.filter(stage__stage_name=stage)
     elif (stage == 'any') & (engagement == 'any')& (investor == 'any'):
-        results = Project.objects.filter(sector__name=sector)
-    elif (sector == 'any') & (stage == 'any')& (investor == 'any'):
+        results = Project.objects.filter(member__name=member)
+    elif (member == 'any') & (stage == 'any')& (investor == 'any'):
         results = Project.objects.filter(engagement__engagement_name=engagement)
-    elif (sector == 'any') & (engagement == 'any')& (stage == 'any'):
+    elif (member == 'any') & (engagement == 'any')& (stage == 'any'):
         results = Project.objects.filter(investor__name=investor)
     elif (stage == 'any')& (investor == 'any') :
-        results = Project.objects.filter(engagement__engagement_name=engagement,sector__name=sector)
+        results = Project.objects.filter(engagement__engagement_name=engagement,member__name=member)
     elif (engagement == 'any') & (investor == 'any'):
-        results = Project.objects.filter(stage__stage_name=stage, sector__name=sector)
-    elif (sector == 'any')& (investor == 'any'):
-        results = Project.objects.filter(engagement__engagement_name=engagement, sector__name=sector)
+        results = Project.objects.filter(stage__stage_name=stage, member__name=member)
+    elif (member == 'any')& (investor == 'any'):
+        results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member)
     elif (stage == 'any')& (engagement == 'any') :
-        results = Project.objects.filter(investor__name=investor,sector__name=sector)
-    elif (engagement == 'any') & (sector == 'any'):
+        results = Project.objects.filter(investor__name=investor,member__name=member)
+    elif (engagement == 'any') & (member == 'any'):
         results = Project.objects.filter(stage__stage_name=stage,investor__name=investor)
-    elif (sector == 'any')& (stage == 'any'):
+    elif (member == 'any')& (stage == 'any'):
         results = Project.objects.filter(engagement__engagement_name=engagement, investor__name=investor)
     elif stage == 'any' :
-        results = Project.objects.filter(engagement__engagement_name=engagement,sector__name=sector, investor__name=investor)
+        results = Project.objects.filter(engagement__engagement_name=engagement,member__name=member, investor__name=investor)
     elif engagement == 'any':
-        results = Project.objects.filter(stage__stage_name=stage, sector__name=sector, investor__name=investor)
-    elif sector == 'any':
-        results = Project.objects.filter(engagement__engagement_name=engagement, sector__name=sector, investor__name=investor)
+        results = Project.objects.filter(stage__stage_name=stage, member__name=member, investor__name=investor)
+    elif member == 'any':
+        results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member, investor__name=investor)
     elif investor == 'any':
-        results = Project.objects.filter(engagement__engagement_name=engagement, sector__name=sector,stage__stage_name=stage )
+        results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member,stage__stage_name=stage )
     else:
-        results = Project.objects.filter(stage__stage_name=stage, engagement__engagement_name=engagement,sector__name=sector,investor__name=investor)
+        results = Project.objects.filter(stage__stage_name=stage, engagement__engagement_name=engagement,member__name=member,investor__name=investor)
 
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
