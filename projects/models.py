@@ -183,7 +183,7 @@ class Project(models.Model):
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    member = models.ManyToManyField(Member)
+    member = models.ManyToManyField(Member,blank=True)
     director = models.ForeignKey('Director', null=True, on_delete=models.SET_NULL, blank=True)
 
     def __str__(self):
