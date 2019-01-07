@@ -60,7 +60,7 @@ def MySearch(request):
     if (stage == 'any') & (member == 'any') & (engagement == 'any') & (investor == 'any'):
         results = Project.objects.all()
     elif (member == 'any') & (engagement == 'any')& (investor == 'any'):
-        results = Project.objects.filter(stage__stage_name=stage)
+        results = Project.objects.filter(funding_Round__stage_name=stage)
     elif (stage == 'any') & (engagement == 'any')& (investor == 'any'):
         results = Project.objects.filter(member__name=member)
     elif (member == 'any') & (stage == 'any')& (investor == 'any'):
@@ -70,25 +70,25 @@ def MySearch(request):
     elif (stage == 'any')& (investor == 'any') :
         results = Project.objects.filter(engagement__engagement_name=engagement,member__name=member)
     elif (engagement == 'any') & (investor == 'any'):
-        results = Project.objects.filter(stage__stage_name=stage, member__name=member)
+        results = Project.objects.filter(funding_Round__stage_name=stage, member__name=member)
     elif (member == 'any')& (investor == 'any'):
         results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member)
     elif (stage == 'any')& (engagement == 'any') :
         results = Project.objects.filter(investor__name=investor,member__name=member)
     elif (engagement == 'any') & (member == 'any'):
-        results = Project.objects.filter(stage__stage_name=stage,investor__name=investor)
+        results = Project.objects.filter(funding_Round__stage_name=stage,investor__name=investor)
     elif (member == 'any')& (stage == 'any'):
         results = Project.objects.filter(engagement__engagement_name=engagement, investor__name=investor)
     elif stage == 'any' :
         results = Project.objects.filter(engagement__engagement_name=engagement,member__name=member, investor__name=investor)
     elif engagement == 'any':
-        results = Project.objects.filter(stage__stage_name=stage, member__name=member, investor__name=investor)
+        results = Project.objects.filter(funding_Round__stage_name=stage, member__name=member, investor__name=investor)
     elif member == 'any':
         results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member, investor__name=investor)
     elif investor == 'any':
-        results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member,stage__stage_name=stage )
+        results = Project.objects.filter(engagement__engagement_name=engagement, member__name=member,funding_Round__stage_name=stage )
     else:
-        results = Project.objects.filter(stage__stage_name=stage, engagement__engagement_name=engagement,member__name=member,investor__name=investor)
+        results = Project.objects.filter(funding_Round__stage_name=stage, engagement__engagement_name=engagement,member__name=member,investor__name=investor)
 
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
