@@ -173,12 +173,12 @@ class Project(models.Model):
     updated_at = models.DateField(null=True, blank=True, auto_now = True)
     date = models.DateField(null=True, blank=True, auto_now_add=True)
     description = models.CharField(max_length=500,blank=True)
-    metric = models.CharField(max_length=100,blank=True, help_text='Total funding received till date or Company valuation')
+    equity_LTD = models.CharField(max_length=100,blank=True)
     investor = models.ManyToManyField(Investor, blank=True)
     if_other_investor = models.CharField(max_length=100, blank=True)
     partner = models.ManyToManyField(Partner, blank=True, help_text='Only Select partners relevant to this engagement')
-    competitor = models.ManyToManyField(VDcomp)
-    amount = models.CharField(max_length=50, blank=True, help_text='Leave blank if you dont know the loan amount yet.')
+    competitor = models.ManyToManyField(VDcomp, help_text='Leave blank if you dont know the loan amount yet.')
+    loan_Amount = models.CharField(max_length=50, blank=True)
 
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.

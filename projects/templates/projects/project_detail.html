@@ -20,7 +20,8 @@
 </div>
 </p>
     <p><strong>Last Updated:</strong> {{ project.updated_at}} </p>
-    <p><strong>Business Description:</strong> {{ project.description }} {{ project.metric }}</p>
+    <p><strong>Business Description:</strong> {{ project.description }}</p>
+      <p><strong>Equity LTD:</strong>  {{ project.equity_LTD }}</p>
       <p><strong>Last Funding:</strong> {{ project.funding_Round }}. Investors are {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %}
       {% if project.if_other_investor %}
     , {{ project.if_other_investor }}
@@ -32,7 +33,7 @@
       Director: {{ project.director }}
       </p>
 {% if project.amount %}
-     <p><strong>Deal Amount:</strong> {{ project.amount }}</p>
+     <p><strong>Deal Amount:</strong> {{ project.loan_Amount }}</p>
 {% else %} {% endif %}
 
 <dl > <strong align="center">Documents:</strong> <a href="{% url 'doc_nw' %}" >Add Document</a>
