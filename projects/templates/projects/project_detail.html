@@ -49,7 +49,7 @@
 <dl>
     {% for dialouge in project.dialouge_set.all %}
     <dt>{{ dialouge.member }} ({{dialouge.date}}):</dt>
-      <dd>{{dialouge}} <a href="{% url 'dialouge_delete' dialouge.pk %}" >Delete</a> </dd>
+    <dd>{{dialouge}} {% if  request.user.username == dialouge.author.username %}   <a href="{% url 'dialouge_delete' dialouge.pk %}" >Delete</a>{% endif %} </dd>
 
 {% endfor %}
 

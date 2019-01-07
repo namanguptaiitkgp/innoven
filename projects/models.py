@@ -74,12 +74,14 @@ class Investor(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.name
+from django.shortcuts import get_object_or_404
 
+from django.contrib.auth.models import User
 class Dialouge(models.Model):
     project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True)
-    member = models.ForeignKey('Member', on_delete=models.SET_NULL, null=True)
     comment = models.CharField(max_length=200)
     date = models.DateField(null=True, blank=True, auto_now=True)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         """String for representing the Model object."""
