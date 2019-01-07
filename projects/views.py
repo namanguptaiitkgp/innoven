@@ -42,7 +42,13 @@ def Allprojects(request):
     result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1"))
     result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2"))
     result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3"))
-    context = {'project_list0':result0,'project_list1':result1,'project_list2':result2,'project_list3':result3}
+    ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early"))
+    ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect"))
+    ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage"))
+    ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued"))
+    ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure"))
+    ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation"))
+    context = {'project_list0':result0,'project_list1':result1,'project_list2':result2,'project_list3':result3,'ds0':ds0,'ds1':ds1,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5}
     return render(request, 'projects/all_projects.html' , context = context)
 
 def MySearch(request):

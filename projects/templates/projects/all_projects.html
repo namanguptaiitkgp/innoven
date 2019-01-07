@@ -79,7 +79,119 @@
      </div>
 
 </div>
+    <hr>
+<div class="row">
 
+     <div class="col-sm-4 ">
+         <h3 align="center">Early</h3>
+      {% if ds0 %}
+
+         <ul class="list-group list-group-flush card">
+          {% for project in ds0 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.funding_Round}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+  <div class="col-sm-4 ">
+         <h3 align="center">Prospect</h3>
+      {% if ds1 %}
+
+         <ul class="list-group list-group-flush card">
+          {% for project in ds1 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.funding_Round}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+
+ <div class="col-sm-4 ">
+
+    <h3 align="center">Underwriting Stage</h3>
+     {% if ds2 %}
+         <ul class="list-group list-group-flush card">
+          {% for project in ds2 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.funding_Round}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+
+
+</div>
+    <div class="row">
+    <div class="col-sm-4 ">
+
+    <h3 align="center">TS Issued</h3>
+        {% if ds3 %}
+         <ul class="list-group list-group-flush card">
+          {% for project in ds3 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.funding_Round}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+
+     <div class="col-sm-4 ">
+         <h3 align="center">TS Closure</h3>
+      {% if ds4 %}
+
+         <ul class="list-group list-group-flush card">
+          {% for project in ds4 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.funding_Round}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+  <div class="col-sm-4 ">
+         <h3 align="center">Documentation</h3>
+      {% if ds5 %}
+
+         <ul class="list-group list-group-flush card">
+          {% for project in ds5 %}
+          <li class="list-group-item">
+           <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+              {{project.dealstage}}, {{project.funding_Round}}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+        <p>There are no projects in the Company.</p>
+      {% endif %}
+     </div>
+
+</div>
 
 
 {% endblock %}
