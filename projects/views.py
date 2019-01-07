@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 # Create your views here.
-from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge
+from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -11,7 +11,7 @@ def index(request):
     # Generate counts of some of the main objects
     num_projects = Project.objects.all().count()
     stage = Stage.objects.all()
-    sector = Sector.objects.all()
+    member = Member.objects.all()
     engagement = Engagement.objects.all()
     num_member = Member.objects.all().count()
     investor = Investor.objects.all()
@@ -19,7 +19,7 @@ def index(request):
         'num_projects': num_projects,
         'num_member':num_member,
         'stage_list':stage,
-        'sector_list':sector,
+        'member_list':member,
         'engagement_list':engagement,
         'investor_list':investor,
     }
@@ -37,6 +37,7 @@ def Search(request):
     return render(request, 'projects/search_projects.html' , context = context)
 
 def Allprojects(request):
+
     result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0"))
     result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1"))
     result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2"))

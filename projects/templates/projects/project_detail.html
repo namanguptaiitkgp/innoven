@@ -20,8 +20,8 @@
 </div>
 </p>
     <p><strong>Last Updated:</strong> {{ project.updated_at}} </p>
-    <p><strong>Business Description:</strong> {{ project.description }} | {{ project.metric }}</p>
-      <p><strong>Last Funding:</strong> {{ project.funding_Round }}, Investors: {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %}
+    <p><strong>Business Description:</strong> {{ project.description }} {{ project.metric }}</p>
+      <p><strong>Last Funding:</strong> {{ project.funding_Round }}. Investors are {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %}
       {% if project.if_other_investor %}
     , {{ project.if_other_investor }}
 {% else %} {% endif %}

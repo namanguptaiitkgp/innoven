@@ -55,12 +55,12 @@
      </div>
       <div class="row">
           <div class="col-sm-2">
-             <label>Sector</label>
+             <label>Member</label>
           </div>
             <div class="col">
              <select name = "mysector">
-                  {% for sector in sector_list %}
-               <option value = "{{ sector.name }}">{{ sector.name }}</option>
+                  {% for member in member_list %}
+               <option value = "{{ member.name }}">{{ member.name }}</option>
                   {% endfor %}
                  <option value = "any"> Any </option>
              </select>
