@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 # Create your views here.
-from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage
+from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage , OStatus
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -11,6 +11,8 @@ def index(request):
     # Generate counts of some of the main objects
     num_projects = Project.objects.all().count()
     stage = Stage.objects.all()
+    dealstage = DealStage.objects.all()
+    ostatus = OStatus.objects.all()
     member = Member.objects.all()
     engagement = Engagement.objects.all()
     num_member = Member.objects.all().count()
@@ -22,6 +24,8 @@ def index(request):
         'member_list':member,
         'engagement_list':engagement,
         'investor_list':investor,
+        'dealstage_list':dealstage,
+        'ostatus_list':ostatus,
     }
 
     # Render the HTML template index.html with the data in the context variable
@@ -92,6 +96,23 @@ def MySearch(request):
 
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
+
+def MyKeySearch(request):
+    dealstage = request.GET.get('mydealstage')
+    ostatus = request.GET.get('myostatus')
+
+
+    if (dealstage == 'any') & (ostatus == 'any'):
+        results = Project.objects.all()
+    elif (dealstage == 'any') :
+        results = Project.objects.filter(overall_Status__name=ostatus)
+    elif (ostatus == 'any'):
+        results = Project.objects.filter(dealstage__name=dealstage)
+    else:
+        results = Project.objects.filter(dealstage__name=dealstage, overall_Status__name=ostatus)
+
+    context = {'project_list':results}
+    return render(request, 'projects/search_keyprojects.html' , context = context)
 
 
 

@@ -13,6 +13,7 @@ urlpatterns = [
     path('investor/<int:pk>', views.InvestorDetailView.as_view(), name='investor-detail'),
     path('projects/search_project', views.Search, name='search_project'),
     path('projects/my_search', views.MySearch, name='my_search'),
+    path('projects/my_keysearch', views.MyKeySearch, name='my_keysearch'),
 
 
 ]
