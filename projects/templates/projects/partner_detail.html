@@ -9,11 +9,12 @@
   <p><strong>No. of Investments:</strong> {{ partner.investments }}</p>
 
     <p><strong>Companies:</strong><br>{{ partner.companies|linebreaksbr }}</p>
+{% if partner.project_set.all %}
      <div style="margin-left:20px;margin-top:20px;padding: 10px;" class="card">
 <h4 align="center">Live Projects</h4>
 
 <dl>
-{% if partner.project_set.all %}
+
 {% for project in partner.project_set.all %}
   <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
   <dd><strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>

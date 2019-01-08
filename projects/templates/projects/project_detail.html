@@ -31,7 +31,7 @@
 {% else %} {% endif %}
       </p>
 
-    <p><strong> Partners </strong> {% for partner in project.partner.all %}<a href="{% url 'partner-detail' partner.pk %}"> {{ partner }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p><strong> Partners: </strong> {% for partner in project.partner.all %}<a href="{% url 'partner-detail' partner.pk %}"> {{ partner }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
       <p><strong>Competitors:</strong>  {% for competitor in project.competitor.all %} {{ competitor }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
       <p><strong>Members:</strong> {% for member in project.member.all %} {{ member }}, {% endfor %}
       Director: {{ project.director }}
