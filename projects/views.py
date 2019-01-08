@@ -191,11 +191,11 @@ def dialouge_new(request):
         form = add_dialouge()
     return render(request, 'projects/dialouge_form.html', {'form': form})
 
-from .forms import add_doc
-
 class DialougeDelete(DeleteView):
     model = Dialouge
     success_url = reverse_lazy('all_projects')
+
+from .forms import add_doc
 
 def doc_new(request):
     if request.method == "POST":
@@ -207,3 +207,16 @@ def doc_new(request):
     else:
         form = add_doc()
     return render(request, 'projects/doc_form.html', {'form': form})
+
+from .forms import add_dsdate
+
+def ds_new(request):
+    if request.method == "POST":
+        form = add_dsdate(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('all_projects')
+    else:
+        form = add_dsdate()
+    return render(request, 'projects/dsdate_form.html', {'form': form})

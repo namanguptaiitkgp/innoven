@@ -104,6 +104,19 @@ class Doc(models.Model):
         """Returns the url to access a particular engagement instance."""
         return reverse('doc-detail', args=[str(self.id)])
 
+class DSdate(models.Model):
+    project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True)
+    dealstage = models.ForeignKey('DealStage', on_delete=models.SET_NULL, null=True)
+    date = models.DateField(null=True, blank=True, auto_now=True)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.project.name
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular engagement instance."""
+        return reverse('DSdate-detail', args=[str(self.id)])
+
 class VDcomp(models.Model):
     """Model representing an author."""
     name = models.CharField(max_length=100)

@@ -19,22 +19,23 @@
     </div>
 </div>
 </p>
-    <p><strong>Last Updated:</strong> {{ project.updated_at}} </p>
+    <p><strong>Last Updated:</strong> {{ project.updated_at}} | <strong>Equity LTD:</strong>  {{ project.equity_LTD }} MM $ </p>
     <p><strong>Business Description:</strong> {{ project.description }}</p>
-      <p><strong>Equity LTD:</strong>  {{ project.equity_LTD }}</p>
+{% if project.loan_Amount %}
+     <p><strong>Loan Amount:</strong> {{ project.loan_Amount }}</p>
+{% else %} {% endif %}
       <p><strong>Last Funding:</strong> {{ project.funding_Round }}. Investors are {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %}
       {% if project.if_other_investor %}
     , {{ project.if_other_investor }}
 {% else %} {% endif %}
       </p>
+
     <p><strong> Partners </strong> {% for partner in project.partner.all %}<a href="{% url 'partner-detail' partner.pk %}"> {{ partner }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
       <p><strong>Competitors:</strong>  {% for competitor in project.competitor.all %} {{ competitor }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
       <p><strong>Members:</strong> {% for member in project.member.all %} {{ member }}, {% endfor %}
       Director: {{ project.director }}
       </p>
-{% if project.amount %}
-     <p><strong>Deal Amount:</strong> {{ project.loan_Amount }}</p>
-{% else %} {% endif %}
+
 
 <dl > <strong align="center">Documents:</strong> <a href="{% url 'doc_nw' %}" >Add Document</a>
 {% for doc in project.doc_set.all %}
@@ -50,6 +51,18 @@
     {% for dialouge in project.dialouge_set.all %}
     <dt>{{ dialouge.author.first_name }} ({{dialouge.date}}):</dt>
     <dd>{{dialouge}} {% if  request.user.username == dialouge.author.username %}   <a href="{% url 'dialouge_delete' dialouge.pk %}" >Delete</a>{% endif %} </dd>
+
+{% endfor %}
+
+</dl>
+
+<div class="container"></div>
+ <hr>
+<p align="center"><span style="font-size: 1.17em; "><strong>Deal Progress: </strong></span> <a href="{% url 'ds_nw' %}">Add Deal Stage</a></p>
+<dl>
+
+    {% for DSdate in project.dsdate_set.all %}
+    <dt>{{ DSdate.dealstage.name }} ({{DSdate.date}})</dt>
 
 {% endfor %}
 

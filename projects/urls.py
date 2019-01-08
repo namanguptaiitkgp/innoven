@@ -29,6 +29,7 @@ urlpatterns += [
     path('investor/create/', views.InvestorCreate.as_view(), name='investor_create'),
     path('investor/<int:pk>/update/', views.InvestorUpdate.as_view(), name='investor_update'),
     path('dialouge/new/', views.dialouge_new, name='dialouge_nw'),
+    path('ds/new/', views.ds_new, name='ds_nw'),
     path('doc/new/', views.doc_new, name='doc_nw'),
 
 
