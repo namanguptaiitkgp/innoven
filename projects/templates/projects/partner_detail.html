@@ -21,8 +21,9 @@
 {% endfor %}
 </dl>
 </div>
+    {% endif %}
     <br>
    <p align="right"><button class="btn btn-primary"><a href="{% url 'partner_update' partner.pk %}" style="color: white">Update</a></button></p>
-{% endif %}
+
 
 {% endblock %}
