@@ -88,10 +88,10 @@
 <div class="row">
 
      <div class="col-sm-4 ">
-           {% if ds0 %}
+
          <h3 align="center">Early</h3>
 
-
+ {% if ds0 %}
          <ul class="list-group list-group-flush card">
           {% for project in ds0 %}
           <li class="list-group-item">
@@ -106,9 +106,9 @@
       {% endif %}
      </div>
   <div class="col-sm-4 ">
-     {% if ds1 %}
-         <h3 align="center">Prospect</h3>
 
+         <h3 align="center">Prospect</h3>
+ {% if ds1 %}
 
          <ul class="list-group list-group-flush card">
           {% for project in ds1 %}
@@ -124,9 +124,9 @@
      </div>
 
  <div class="col-sm-4 ">
- {% if ds2 %}
-    <h3 align="center">Underwriting Stage</h3>
 
+    <h3 align="center">Underwriting Stage</h3>
+{% if ds2 %}
          <ul class="list-group list-group-flush card">
           {% for project in ds2 %}
           <li class="list-group-item">
@@ -146,9 +146,9 @@
     <br>
     <div class="row">
     <div class="col-sm-4 ">
-        {% if ds3 %}
-    <h3 align="center">TS Issued</h3>
 
+    <h3 align="center">TS Issued</h3>
+  {% if ds3 %}
          <ul class="list-group list-group-flush card">
           {% for project in ds3 %}
           <li class="list-group-item">
@@ -164,10 +164,10 @@
      </div>
 
      <div class="col-sm-4 ">
-      {% if ds4 %}
+
          <h3 align="center">TS Closure</h3>
 
-
+  {% if ds4 %}
          <ul class="list-group list-group-flush card">
           {% for project in ds4 %}
           <li class="list-group-item">
@@ -182,9 +182,9 @@
       {% endif %}
      </div>
   <div class="col-sm-4 ">
-  {% if ds5 %}
-         <h3 align="center">Documentation</h3>
 
+         <h3 align="center">Documentation</h3>
+  {% if ds5 %}
 
          <ul class="list-group list-group-flush card">
           {% for project in ds5 %}
