@@ -19,8 +19,9 @@
     </div>
 </div>
 </p>
-    <p><strong>Last Updated:</strong> {{ project.updated_at}} | <strong>Equity LTD:</strong>  {{ project.equity_LTD }} MM $ </p>
+    <p><strong>Last Updated:</strong> {{ project.updated_at}} | <strong>Deal Stage:</strong> </p>
     <p><strong>Business Description:</strong> {{ project.description }}</p>
+      <p><strong>Equity LTD:</strong>  {{ project.equity_LTD }}</p>
 {% if project.loan_Amount %}
      <p><strong>Loan Amount:</strong> {{ project.loan_Amount }}</p>
 {% else %} {% endif %}
