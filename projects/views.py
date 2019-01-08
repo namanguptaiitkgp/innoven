@@ -36,7 +36,7 @@ from django.contrib.postgres.search import SearchVector
 
 def Search(request):
     query = request.GET.get('q')
-    results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query))
+    results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query) | Q(partner__name__icontains=query))
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
 

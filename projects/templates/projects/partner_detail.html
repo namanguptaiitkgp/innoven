@@ -7,8 +7,19 @@
   <p> <strong>Designation:</strong> {{ partner.designation }}, {{ partner.location }}</p>
      <p><strong>Focus:</strong> {% for focus in partner.sector.all %} {{ focus }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
   <p><strong>No. of Investments:</strong> {{ partner.investments }}</p>
+
     <p><strong>Companies:</strong><br>{{ partner.companies|linebreaksbr }}</p>
-      <p ><a href="{% url 'partner_delete' partner.pk %}" >Delete Partner</a></p>
+     <div style="margin-left:20px;margin-top:20px;padding: 10px;" class="card">
+<h4 align="center">Live Projects</h4>
+
+<dl>
+{% for project in partner.project_set.all %}
+  <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
+  <dd><strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+{% endfor %}
+</dl>
+</div>
+    <br>
    <p align="right"><button class="btn btn-primary"><a href="{% url 'partner_update' partner.pk %}" style="color: white">Update</a></button></p>
 
 
