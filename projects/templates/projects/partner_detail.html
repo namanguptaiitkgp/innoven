@@ -13,6 +13,7 @@
 <h4 align="center">Live Projects</h4>
 
 <dl>
+{% if partner.project_set.all %}
 {% for project in partner.project_set.all %}
   <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
   <dd><strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
@@ -21,6 +22,6 @@
 </div>
     <br>
    <p align="right"><button class="btn btn-primary"><a href="{% url 'partner_update' partner.pk %}" style="color: white">Update</a></button></p>
-
+{% endif %}
 
 {% endblock %}
