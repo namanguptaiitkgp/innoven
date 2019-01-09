@@ -184,6 +184,7 @@ class Project(models.Model):
     funding_Round = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
     engagement = models.ForeignKey('Engagement', on_delete=models.SET_NULL, null=True)
     next_step =  models.CharField(max_length=500,blank=True)
+    closure_month = models.CharField(max_length=10,blank=True)
     updated_at = models.DateField(null=True, blank=True, auto_now = True)
     date = models.DateField(null=True, blank=True, auto_now_add=True)
     description = models.CharField(max_length=500,blank=True)

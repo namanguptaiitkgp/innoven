@@ -103,30 +103,36 @@ def MyKeySearch(request):
     ostatus = request.GET.get('myostatus')
     member = request.GET.get('mymember')
     director = request.GET.get('mydirector')
+
     if (dealstage == 'any') & (member == 'any') & (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(~Q(dealstage__name="Early"))
+
     elif (member == 'any') & (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage)
+
     elif (dealstage == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(member__name=member) | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(member__name=member) & ~Q(dealstage__name="Early"))
+
     elif (member == 'any') & (dealstage == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & ~Q(dealstage__name="Early"))
+
     elif (member == 'any') & (ostatus == 'any') & (dealstage == 'any'):
-        results = Project.objects.filter(Q(director__name=director) | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(director__name=director) & ~Q(dealstage__name="Early"))
+
     elif (dealstage == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) | Q(member__name=member) | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & ~Q(dealstage__name="Early"))
     elif (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage, member__name=member)
     elif (member == 'any') & (director == 'any'):
         results = Project.objects.filter(overall_Status__name=ostatus, member__name=member)
     elif (dealstage == 'any') & (ostatus == 'any'):
-        results = Project.objects.filter(Q(director__name=director) | Q(member__name=member) | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(director__name=director) & Q(member__name=member) & ~Q(dealstage__name="Early"))
     elif (ostatus == 'any') & (member == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage, director__name=director)
     elif (member == 'any') & (dealstage == 'any'):
         results = Project.objects.filter(overall_Status__name=ostatus, director__name=director)
     elif dealstage == 'any':
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) | Q(member__name=member) | Q(director__name = director) | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name = director) & ~Q(dealstage__name="Early"))
     elif ostatus == 'any':
         results = Project.objects.filter(dealstage__name=dealstage, member__name=member, director__name=director)
     elif member == 'any':
