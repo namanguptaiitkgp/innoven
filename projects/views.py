@@ -104,7 +104,7 @@ def MyKeySearch(request):
     member = request.GET.get('mymember')
     director = request.GET.get('mydirector')
     if (dealstage == 'any') & (member == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.all()
+        results = Project.objects.all(~Q(dealstage__name="Early"))
     elif (member == 'any') & (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage)
     elif (dealstage == 'any') & (ostatus == 'any') & (director == 'any'):

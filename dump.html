@@ -12,7 +12,25 @@
   {% endif %}
 
 {% endblock %}
+ {% if project_list %}
+   <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 card">
+     <ul class="list-group list-group-flush">
+      {% for project in project_list %}
 
+      <li class="list-group-item">
+       <h4><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h4>
+         Deal Stage: {{project.dealstage}} | Loan Amount: {{ project.loan_Amount }} <br> Director: {{project.director.name}} | Underwriter Name: {% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %} {% endfor %}
+      </li>
+
+    {% endfor %}
+    </ul>
+</div>
+</div>
+  {% else %}
+    <p>There are no projects in the Company.</p>
+  {% endif %}
 
 <table class="table">
   <thead>
@@ -86,7 +104,7 @@
     </tr>
        {% endif %}
   {% endfor %}
-   
+
   </tbody>
 </table>
 
