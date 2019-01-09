@@ -43,7 +43,6 @@ def Search(request):
     return render(request, 'projects/search_projects.html' , context = context)
 
 def Allprojects(request):
-
     result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0"))
     result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1"))
     result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2"))
