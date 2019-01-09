@@ -105,7 +105,7 @@ def MyKeySearch(request):
     if (dealstage == 'any') & (ostatus == 'any'):
         results = Project.objects.filter(~Q(dealstage__name="Early"))
     elif (dealstage == 'any') :
-        results = Project.objects.filter(overall_Status__name=ostatus | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) | ~Q(dealstage__name="Early"))
     elif (ostatus == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage)
     else:
