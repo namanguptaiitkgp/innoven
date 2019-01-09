@@ -11,7 +11,7 @@ def index(request):
     # Generate counts of some of the main objects
     num_projects = Project.objects.all().count()
     stage = Stage.objects.all()
-    dealstage = DealStage.objects.all()
+    dealstage = DealStage.objects.filter(~Q(name="Early"))
     ostatus = OStatus.objects.all()
     member = Member.objects.all()
     engagement = Engagement.objects.all()
@@ -36,7 +36,7 @@ from django.contrib.postgres.search import SearchVector
 
 def Search(request):
     query = request.GET.get('q')
-    results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query) | Q(partner__name__icontains=query))
+    results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query) | Q(partner__name__icontains=query)).distinct()
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
 
@@ -103,9 +103,9 @@ def MyKeySearch(request):
 
 
     if (dealstage == 'any') & (ostatus == 'any'):
-        results = Project.objects.all()
+        results = Project.objects.filter(~Q(dealstage__name="Early"))
     elif (dealstage == 'any') :
-        results = Project.objects.filter(overall_Status__name=ostatus)
+        results = Project.objects.filter(overall_Status__name=ostatus | ~Q(dealstage__name="Early"))
     elif (ostatus == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage)
     else:
