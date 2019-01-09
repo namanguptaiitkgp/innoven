@@ -27,7 +27,7 @@
       <td>{% for member in project.member.all %} {{ member }}, {% endfor %} {{ project.director }}</td>
       <td>{{ project.loan_Amount }}</td>
       <td> {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %} {% if project.if_other_investor %} {{ project.if_other_investor }} {% endif %}</td>
-      <td>{{ project.next_step }}</td>
+      <td> <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >{{ project.next_step }}</a></td>
     </tr>
        {% endif %}
   {% endfor %}
