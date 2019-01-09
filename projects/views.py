@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 # Create your views here.
-from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage , OStatus
+from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage , OStatus, Director
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -14,6 +14,7 @@ def index(request):
     dealstage = DealStage.objects.filter(~Q(name="Early"))
     ostatus = OStatus.objects.all()
     member = Member.objects.all()
+    director = Director.objects.all()
     engagement = Engagement.objects.all()
     num_member = Member.objects.all().count()
     investor = Investor.objects.all()
@@ -22,6 +23,7 @@ def index(request):
         'num_member':num_member,
         'stage_list':stage,
         'member_list':member,
+        'director_list': director,
         'engagement_list':engagement,
         'investor_list':investor,
         'dealstage_list':dealstage,
@@ -100,16 +102,40 @@ def MySearch(request):
 def MyKeySearch(request):
     dealstage = request.GET.get('mydealstage')
     ostatus = request.GET.get('myostatus')
-
-
-    if (dealstage == 'any') & (ostatus == 'any'):
-        results = Project.objects.filter(~Q(dealstage__name="Early"))
-    elif (dealstage == 'any') :
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) | ~Q(dealstage__name="Early"))
-    elif (ostatus == 'any'):
+    member = request.GET.get('mymember')
+    director = request.GET.get('mydirector')
+    if (dealstage == 'any') & (member == 'any') & (ostatus == 'any') & (director == 'any'):
+        results = Project.objects.all()
+    elif (member == 'any') & (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage)
+    elif (dealstage == 'any') & (ostatus == 'any') & (director == 'any'):
+        results = Project.objects.filter(Q(member__name=member) | ~Q(dealstage__name="Early"))
+    elif (member == 'any') & (dealstage == 'any') & (director == 'any'):
+        results = Project.objects.filter(overall_Status__name=ostatus | ~Q(dealstage__name="Early"))
+    elif (member == 'any') & (ostatus == 'any') & (dealstage == 'any'):
+        results = Project.objects.filter(Q(director__name=director) | ~Q(dealstage__name="Early"))
+    elif (dealstage == 'any') & (director == 'any'):
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) | Q(member__name=member) | ~Q(dealstage__name="Early"))
+    elif (ostatus == 'any') & (director == 'any'):
+        results = Project.objects.filter(dealstage__name=dealstage, member__name=member)
+    elif (member == 'any') & (director == 'any'):
+        results = Project.objects.filter(overall_Status__name=ostatus, member__name=member)
+    elif (dealstage == 'any') & (ostatus == 'any'):
+        results = Project.objects.filter(Q(director__name=director) | Q(member__name=member) | ~Q(dealstage__name="Early"))
+    elif (ostatus == 'any') & (member == 'any'):
+        results = Project.objects.filter(dealstage__name=dealstage, director__name=director)
+    elif (member == 'any') & (dealstage == 'any'):
+        results = Project.objects.filter(overall_Status__name=ostatus, director__name=director)
+    elif dealstage == 'any':
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) | Q(member__name=member) | Q(director__name = director) | ~Q(dealstage__name="Early"))
+    elif ostatus == 'any':
+        results = Project.objects.filter(dealstage__name=dealstage, member__name=member, director__name=director)
+    elif member == 'any':
+        results = Project.objects.filter(overall_Status__name=ostatus, member__name=member, director__name=director)
+    elif director == 'any':
+        results = Project.objects.filter(overall_Status__name=ostatus, member__name=member, dealstage__name=dealstage)
     else:
-        results = Project.objects.filter(dealstage__name=dealstage, overall_Status__name=ostatus)
+        results = Project.objects.filter(dealstage__name=dealstage, overall_Status__name=ostatus, member__name=member,director__name=director)
 
     context = {'project_list':results}
     return render(request, 'projects/search_keyprojects.html' , context = context)
@@ -138,6 +164,10 @@ class ProjectCreate(CreateView):
 class ProjectUpdate(UpdateView):
     model = Project
     fields = '__all__'
+
+class ProjectnUpdate(UpdateView):
+    model = Project
+    fields = {'next_step'}
 
 class ProjectDelete(DeleteView):
     model = Project

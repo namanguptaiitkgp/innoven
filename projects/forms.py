@@ -18,4 +18,9 @@ class add_dsdate(forms.ModelForm):
 
     class Meta:
         model = DSdate
-        fields = '__all__'
+        fields = ['date', 'project', 'dealstage']
+
+    date = forms.DateField(
+        widget=forms.DateInput(format='%d/%m/%Y', attrs={'class': 'datepicker'}),
+        input_formats=('%d/%m/%Y',)
+    )

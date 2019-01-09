@@ -11,6 +11,7 @@
     <li><strong>Total Projects:</strong> {{ num_projects }}</li>
     <li><strong>Members:</strong> {{ num_member }}</li>
   </ul>
+To update the Deal Stage status of a company <a href="{% url 'ds_nw' %}">click here</a><br>
 <div class="row">
 <div class="col-6">
 <form method="get" action="{% url 'my_search' %}">
@@ -108,6 +109,32 @@
              </select>
           </div>
        </div>
+          <div class="row">
+          <div class="col-sm-4">
+             <label>Member</label>
+          </div>
+            <div class="col">
+             <select name = "mymember">
+                  {% for member in member_list %}
+               <option value = "{{ member.name }}">{{ member.name }}</option>
+                  {% endfor %}
+                 <option value = "any"> Any </option>
+             </select>
+            </div>
+      </div>
+          <div class="row">
+          <div class="col-sm-4">
+             <label>Director</label>
+          </div>
+            <div class="col">
+             <select name = "mydirector">
+                  {% for director in director_list %}
+               <option value = "{{ director.name }}">{{ director.name }}</option>
+                  {% endfor %}
+                 <option value = "any"> Any </option>
+             </select>
+            </div>
+      </div>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
 

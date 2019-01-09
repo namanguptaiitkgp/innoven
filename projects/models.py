@@ -87,9 +87,7 @@ class Dialouge(models.Model):
         """String for representing the Model object."""
         return self.comment
 
-    def get_absolute_url(self):
-        """Returns the url to access a particular engagement instance."""
-        return reverse('dialouge-detail', args=[str(self.id)])
+
 
 class Doc(models.Model):
     name =  models.CharField(max_length=200)
@@ -107,7 +105,7 @@ class Doc(models.Model):
 class DSdate(models.Model):
     project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True)
     dealstage = models.ForeignKey('DealStage', on_delete=models.SET_NULL, null=True)
-    date = models.DateField(null=True, blank=True, auto_now=True)
+    date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -185,6 +183,7 @@ class Project(models.Model):
     overall_Status = models.ForeignKey('OStatus', on_delete=models.SET_NULL, null=True)
     funding_Round = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
     engagement = models.ForeignKey('Engagement', on_delete=models.SET_NULL, null=True)
+    next_step =  models.CharField(max_length=500,blank=True)
     updated_at = models.DateField(null=True, blank=True, auto_now = True)
     date = models.DateField(null=True, blank=True, auto_now_add=True)
     description = models.CharField(max_length=500,blank=True)
