@@ -111,7 +111,7 @@ def MyKeySearch(request):
     elif (dealstage == 'any') & (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(Q(member__name=member) | ~Q(dealstage__name="Early"))
     elif (member == 'any') & (dealstage == 'any') & (director == 'any'):
-        results = Project.objects.filter(overall_Status__name=ostatus | ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) | ~Q(dealstage__name="Early"))
     elif (member == 'any') & (ostatus == 'any') & (dealstage == 'any'):
         results = Project.objects.filter(Q(director__name=director) | ~Q(dealstage__name="Early"))
     elif (dealstage == 'any') & (director == 'any'):
