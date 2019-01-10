@@ -14,7 +14,7 @@
 {% for pcompanies in partner.pcompanies_set.all %}
    {% if pcompanies.current_status.name == "Active" %}
   <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" > {{pcompanies}} </a></dt>
-  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
     {% endif %}
 {% endfor %}
 </dl>
@@ -26,7 +26,7 @@
 {% for pcompanies in partner.pcompanies_set.all %}
      {% if pcompanies.current_status.name == "Past" %}
   <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
-  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
        {% endif %}
 {% endfor %}
 </dl>
@@ -38,8 +38,14 @@
 {% for pcompanies in partner.pcompanies_set.all %}
       {% if pcompanies.current_status.name == "Lost" %}
   <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
-  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+   <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
      {% endif %}
+{% endfor %}
+{% for project in partner.project_set.all %}
+    {% if project.overall_Status.name == "Lost" %}
+  <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
+   <dd>{% for partner in project.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+    {% endif %}
 {% endfor %}
 </dl>
 </div>
@@ -52,8 +58,10 @@
 <dl>
 
 {% for project in partner.project_set.all %}
+        {% if project.overall_Status.name != "Lost" %}
   <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
   <dd><strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+{% endif %}
 {% endfor %}
 </dl>
 </div>
