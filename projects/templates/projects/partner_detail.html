@@ -7,10 +7,46 @@
   <p> <strong>Designation:</strong> {{ partner.designation }}, {{ partner.location }}</p>
      <p><strong>Focus:</strong> {% for focus in partner.sector.all %} {{ focus }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
   <p><strong>No. of Investments:</strong> {{ partner.investments }}</p>
+    <div class="row">
+<div class="col-4">
+<h4>Active</h4>
+<dl>
+{% for pcompanies in partner.pcompanies_set.all %}
+   {% if pcompanies.current_status.name == "Active" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" > {{pcompanies}} </a></dt>
+  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+    {% endif %}
+{% endfor %}
+</dl>
+</div>
+<div class="col-4">
+<h4>Past</h4>
 
-    <p><strong>Companies:</strong><br>{{ partner.companies|linebreaksbr }}</p>
+<dl>
+{% for pcompanies in partner.pcompanies_set.all %}
+     {% if pcompanies.current_status.name == "Past" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
+  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+       {% endif %}
+{% endfor %}
+</dl>
+</div>
+<div class="col-4">
+<h4>Lost</h4>
+
+<dl>
+{% for pcompanies in partner.pcompanies_set.all %}
+      {% if pcompanies.current_status.name == "Lost" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
+  <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+     {% endif %}
+{% endfor %}
+</dl>
+</div>
+</div>
+
 {% if partner.project_set.all %}
-     <div style="margin-left:20px;margin-top:20px;padding: 10px;" class="card">
+     <div style="margin-left:20px;margin-top:20px">
 <h4 align="center">Live Projects</h4>
 
 <dl>

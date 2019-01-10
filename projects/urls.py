@@ -21,7 +21,9 @@ urlpatterns = [
 
 urlpatterns += [
     path('project/create/', views.ProjectCreate.as_view(), name='project_create'),
-    path('project/<int:pk>/update/', views.ProjectUpdate.as_view(), name='project_update'),
+    path('project/<int:pk>/update/', views.PcompaniesUpdate.as_view(), name='project_update'),
+    path('pcompanies/create/', views.PcompaniesCreate.as_view(), name='pcompanies_create'),
+    path('pcompanies/<int:pk>/update/', views.PcompaniesUpdate.as_view(), name='pcompanies_update'),
     path('projectn/<int:pk>/update/', views.ProjectnUpdate.as_view(), name='projectn_update'),
     path('project/<int:pk>/delete/', views.ProjectDelete.as_view(), name='project_delete'),
     path('dialouge/<int:pk>/delete/', views.DialougeDelete.as_view(), name='dialouge_delete'),

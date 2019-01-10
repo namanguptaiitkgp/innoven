@@ -5,6 +5,46 @@
 <h1>{{ investor }} </h1>
 <p>{{investor.fund_size}}</p>
 <p>{{investor.description}}</p>
+
+<div class="row">
+<div class="col-4">
+<h4>Active</h4>
+<dl>
+{% for pcompanies in investor.pcompanies_set.all %}
+   {% if pcompanies.current_status.name == "Active" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" > {{pcompanies}} </a></dt>
+  <dd>{% for partner in pcompanies.partner.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+    {% endif %}
+{% endfor %}
+</dl>
+</div>
+<div class="col-4">
+<h4>Past</h4>
+
+<dl>
+{% for pcompanies in investor.pcompanies_set.all %}
+     {% if pcompanies.current_status.name == "Past" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
+  <dd>{% for partner in pcompanies.partner.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+       {% endif %}
+{% endfor %}
+</dl>
+</div>
+<div class="col-4">
+<h4>Lost</h4>
+
+<dl>
+{% for pcompanies in investor.pcompanies_set.all %}
+      {% if pcompanies.current_status.name == "Lost" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
+  <dd>{% for partner in pcompanies.partner.all %}<a href="{% url 'partner-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+     {% endif %}
+{% endfor %}
+</dl>
+</div>
+</div>
+
+{% if investor.project_set.all %}
 <div style="margin-left:20px;margin-top:20px">
 <h4>Live Projects</h4>
 
@@ -15,6 +55,7 @@
 {% endfor %}
 </dl>
 </div>
+{% endif %}
 <div style="margin-left:20px;margin-top:20px">
 <h4>Partners</h4>
 

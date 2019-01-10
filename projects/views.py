@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 # Create your views here.
-from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage , OStatus, Director
+from projects.models import Project, Stage, Sector, Engagement, Member, Partner, Investor, Dialouge, DealStage , OStatus, Director, Pcompanies
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -276,3 +276,19 @@ def ds_new(request):
     else:
         form = add_dsdate()
     return render(request, 'projects/dsdate_form.html', {'form': form})
+
+
+
+class PcompaniesCreate(CreateView):
+    model = Pcompanies
+    fields = '__all__'
+    success_url = reverse_lazy('pcompanies_create')
+
+class PcompaniesUpdate(UpdateView):
+    model = Pcompanies
+    fields = '__all__'
+    success_url = reverse_lazy('investor')
+
+class PcompaniesDelete(DeleteView):
+    model = Pcompanies
+    success_url = reverse_lazy('index')

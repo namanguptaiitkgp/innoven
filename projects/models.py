@@ -160,7 +160,6 @@ class Partner(models.Model):
     designation = models.ForeignKey('pDesignation', on_delete=models.SET_NULL, null=True)
     location = models.ForeignKey('Location', on_delete=models.SET_NULL, null=True)
     investments = models.IntegerField('No. Of Investments', null=True, help_text='Portfolio/Investments')
-    companies = models.TextField(max_length=1000)
 
 
     def __str__(self):
@@ -208,4 +207,26 @@ class Project(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
         return reverse('project-detail', args=[str(self.id)])
+
+class Currents(models.Model):
+    """Model representing a book genre."""
+    name = models.CharField(max_length=10)
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
+
+class Pcompanies(models.Model):
+    """Model representing a book genre."""
+    name = models.CharField(max_length=200)
+    investor = models.ManyToManyField(Investor,  blank=True)
+    partner = models.ManyToManyField(Partner, blank=True)
+    current_status = models.ForeignKey('Currents', on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
+
+    def get_absolute_url(self):
+        """Returns the url to access a detail record for this book."""
+        return reverse('pcompanies-detail', args=[str(self.id)])
 
