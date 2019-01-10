@@ -43,12 +43,12 @@ def Search(request):
     return render(request, 'projects/search_projects.html' , context = context)
 
 def Allprojects(request):
-    result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0") & ~Q(overall_Status__name="Lost"))
-    result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1") & ~Q(overall_Status__name="Lost"))
-    result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2")& ~Q(overall_Status__name="Lost"))
-    result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3")& ~Q(overall_Status__name="Lost"))
-    ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early")& ~Q(overall_Status__name="Lost"))
-    ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect")& ~Q(overall_Status__name="Lost"))
+    result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage"))
     ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued"))
     ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure"))

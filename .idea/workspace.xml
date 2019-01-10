@@ -57,13 +57,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/templates/projects/investor_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+            <state relative-caret-position="104">
+              <caret line="64" column="49" lean-forward="true" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="51" />
               <folding>
                 <element signature="e#494#515#0#HTML" expanded="true" />
+                <element signature="e#887#908#0#HTML" expanded="true" />
                 <element signature="e#903#924#0#HTML" expanded="true" />
                 <element signature="e#1316#1337#0#HTML" expanded="true" />
                 <element signature="e#1831#1852#0#HTML" expanded="true" />
@@ -94,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/templates/projects/all_projects.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-102">
@@ -230,10 +231,10 @@
         <option value="$PROJECT_DIR$/projects/urls.py" />
         <option value="$PROJECT_DIR$/projects/templates/base_generic.html" />
         <option value="$PROJECT_DIR$/projects/templates/projects/partner_detail.html" />
-        <option value="$PROJECT_DIR$/projects/templates/projects/investor_detail.html" />
         <option value="$PROJECT_DIR$/projects/templates/projects/pcompanies_form.html" />
         <option value="$PROJECT_DIR$/projects/views.py" />
         <option value="$PROJECT_DIR$/projects/templates/projects/all_projects.html" />
+        <option value="$PROJECT_DIR$/projects/templates/projects/investor_detail.html" />
       </list>
     </option>
   </component>
@@ -375,12 +376,12 @@
       <workItem from="1546593290083" duration="759000" />
       <workItem from="1546603503656" duration="16869000" />
       <workItem from="1547012708457" duration="23791000" />
-      <workItem from="1547108409784" duration="5814000" />
+      <workItem from="1547108409784" duration="6183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65847000" />
+    <option name="totallyTimeSpent" value="66216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -649,20 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/investor_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-          <folding>
-            <element signature="e#494#515#0#HTML" expanded="true" />
-            <element signature="e#903#924#0#HTML" expanded="true" />
-            <element signature="e#1316#1337#0#HTML" expanded="true" />
-            <element signature="e#1831#1852#0#HTML" expanded="true" />
-            <element signature="e#148#188#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -691,6 +678,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="90" column="47" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/investor_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="64" column="49" lean-forward="true" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="51" />
+          <folding>
+            <element signature="e#494#515#0#HTML" expanded="true" />
+            <element signature="e#887#908#0#HTML" expanded="true" />
+            <element signature="e#903#924#0#HTML" expanded="true" />
+            <element signature="e#1316#1337#0#HTML" expanded="true" />
+            <element signature="e#1831#1852#0#HTML" expanded="true" />
+            <element signature="e#148#188#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

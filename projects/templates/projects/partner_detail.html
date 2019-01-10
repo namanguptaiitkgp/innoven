@@ -17,6 +17,12 @@
   <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
     {% endif %}
 {% endfor %}
+{% for project in partner.project_set.all %}
+    {% if project.overall_Status.name == "Funded-Full" %}
+  <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
+   <dd>{% for partner in project.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+    {% endif %}
+{% endfor %}
 </dl>
 </div>
 <div class="col-4">
@@ -58,7 +64,7 @@
 <dl>
 
 {% for project in partner.project_set.all %}
-        {% if project.overall_Status.name != "Lost" %}
+        {% if project.overall_Status.name != "Lost" and project.overall_Status.name != "Funded-Full"  %}
   <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>
   <dd><strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
 {% endif %}
