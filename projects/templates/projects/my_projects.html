@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h3 align="center">My Projects</h3>
+    <ul class="list-group list-group-flush">
+{% for project in project_list.all %}
+ {% for member in project.member.all %}
+
+{% if  request.user.first_name  in member.name or request.user.first_name in director.name %}
+
+
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> - {{ project.next_step }} . Loan Amount: {{ project.loan_Amount }} | {{ project.dealstage }}  |
+
+          </li>
+
+
+ {% endif %}
+     {% endfor %}
+{% endfor %}
+     </ul>
+{% endblock %}
