@@ -1,81 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6"><center><h2> Engagement Level </h2> </center></div>
-{#    <div class="col-sm-3" ><center> <h4 class="btn btn-primary">  <a href="{% url 'project_create' %}" style="color: white"> Add</a></h4></center></div>#}
- </div>
- <div class="row">
 
-     <div class="col-sm-3 ">
-         <h4 align="center">Level 0</h4>
-      {% if project_list0 %}
-
-         <ul class="list-group list-group-flush">
-          {% for project in project_list0 %}
-          <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{project.dealstage}}, {{project.funding_Round}}
-          </li>
-        {% endfor %}
-        </ul>
-
-      {% else %}
-        <p>There are no projects in the Company.</p>
-      {% endif %}
-     </div>
-  <div class="col-sm-3 ">
-         <h4 align="center">Level 1</h4>
-      {% if project_list1 %}
-
-         <ul class="list-group list-group-flush card">
-          {% for project in project_list1 %}
-           <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{project.dealstage}}, {{project.funding_Round}}
-          </li>
-        {% endfor %}
-        </ul>
-
-      {% else %}
-        <p>There are no projects in the Company.</p>
-      {% endif %}
-     </div>
-
- <div class="col-sm-3 ">
-      
-    <h4 align="center">Level 2</h4>
-     {% if project_list2 %}
-         <ul class="list-group list-group-flush card">
-          {% for project in project_list2 %}
-          <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{project.dealstage}}, {{project.funding_Round}}
-          </li>
-        {% endfor %}
-        </ul>
-
-      {% else %}
-        <p>There are no projects in the Company.</p>
-      {% endif %}
-     </div>
- <div class="col-sm-3 ">
-   
-    <h4 align="center">Level 3</h4>
-        {% if project_list3 %}
-         <ul class="list-group list-group-flush card">
-          {% for project in project_list3 %}
-          <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{project.dealstage}}, {{project.funding_Round}}
-          </li>
-        {% endfor %}
-        </ul>
-
-      {% else %}
-        <p>There are no projects in the Company.</p>
-      {% endif %}
-     </div>
-
-</div>
-    <hr>
 <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6"><center><h2> Deal Stage</h2> </center></div>
@@ -92,7 +18,7 @@
           {% for project in ds0 %}
 
           <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{ project.engagement }} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
           </li>
         {% endfor %}
         </ul>
@@ -109,7 +35,7 @@
          <ul class="list-group list-group-flush">
           {% for project in ds1 %}
           <li class="list-group-item">
-          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{ project.engagement }} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
 
           </li>
         {% endfor %}
@@ -120,7 +46,86 @@
      </div>
 
 </div>
+    <br>
+<div class="row">
 
+     <div class="col-sm-6">
+
+         <h3 align="center">Underwriting Stage</h3>
+
+ {% if ds2 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds2 %}
+
+          <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{ project.engagement }} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+     </div>
+  <div class="col-sm-6 ">
+
+         <h3 align="center">TS Issued</h3>
+ {% if ds3 %}
+
+         <ul class="list-group list-group-flush">
+          {% for project in ds3 %}
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{ project.engagement }} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+      {% endif %}
+     </div>
+
+</div>
+    <br>
+<div class="row">
+
+     <div class="col-sm-6">
+
+         <h3 align="center">TS Closure</h3>
+
+ {% if ds4 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds4 %}
+
+          <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{ project.engagement }} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+     </div>
+  <div class="col-sm-6 ">
+
+         <h3 align="center">Documentation</h3>
+ {% if ds5 %}
+
+         <ul class="list-group list-group-flush">
+          {% for project in ds5 %}
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {{ project.engagement }} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+
+          </li>
+        {% endfor %}
+        </ul>
+
+      {% else %}
+      {% endif %}
+     </div>
+
+</div>
 <br><br>
 
 {% endblock %}

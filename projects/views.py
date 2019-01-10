@@ -41,12 +41,17 @@ def Search(request):
     results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query) | Q(partner__name__icontains=query)).distinct()
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
-
-def Allprojects(request):
+def Engprojects(request):
     result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    context = {'project_list0': result0, 'project_list1': result1, 'project_list2': result2, 'project_list3': result3}
+
+    return render(request, 'projects/engagement_projects.html', context=context)
+
+
+def Allprojects(request):
     ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage"))
@@ -54,7 +59,7 @@ def Allprojects(request):
     ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure"))
     ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation"))
 
-    context = {'project_list0':result0,'project_list1':result1,'project_list2':result2,'project_list3':result3,'ds0':ds0,'ds1':ds1,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5}
+    context = {'ds0':ds0,'ds1':ds1,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5}
     return render(request, 'projects/all_projects.html' , context = context)
 
 def Myprojects(request):

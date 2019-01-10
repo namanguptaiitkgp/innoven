@@ -8,6 +8,7 @@ urlpatterns = [
     path('partner/', views.PartnerListView.as_view(), name='partner'),
     path('investor/', views.InvestorListView.as_view(), name='investor'),
     path('projects/all_projects', views.Allprojects, name='all_projects'),
+    path('projects/engagement_projects', views.Engprojects, name='eng_projects'),
     path('projects/my_projects', views.Myprojects, name='my_projects'),
     path('project/<int:pk>', views.ProjectDetailView.as_view(), name='project-detail'),
     path('partner/<int:pk>', views.PartnerDetailView.as_view(), name='partner-detail'),
