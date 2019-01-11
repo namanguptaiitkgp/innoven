@@ -31,7 +31,7 @@
       <td>{{ project.loan_Amount }}</td>
       <td>{{ project.director }}</td>
       <td> <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >{{ project.next_step }}</a></td>
-      <td>{% for member in project.member.all %} {{ member }}, {% endfor %} </td>
+      <td>{% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %} {% endfor %} </td>
       <td> {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %} {% if project.if_other_investor %} {{ project.if_other_investor }} {% endif %}</td>
 
     </tr>
@@ -46,7 +46,7 @@
       <td>{{ project.loan_Amount }}</td>
       <td>{{ project.director }}</td>
       <td> <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >{{ project.next_step }}</a></td>
-      <td>{% for member in project.member.all %} {{ member }}, {% endfor %} </td>
+      <td>{% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %} {% endfor %} </td>
       <td> {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %} {% if project.if_other_investor %} {{ project.if_other_investor }} {% endif %}</td>
 
     </tr>
@@ -61,7 +61,7 @@
       <td>{{ project.loan_Amount }}</td>
       <td>{{ project.director }}</td>
       <td> <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >{{ project.next_step }}</a></td>
-      <td>{% for member in project.member.all %} {{ member }}, {% endfor %} </td>
+      <td>{% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %} {% endfor %} </td>
       <td> {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %} {% if project.if_other_investor %} {{ project.if_other_investor }} {% endif %}</td>
 
     </tr>
@@ -76,7 +76,7 @@
       <td>{{ project.loan_Amount }}</td>
       <td>{{ project.director }}</td>
       <td> <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >{{ project.next_step }}</a></td>
-      <td>{% for member in project.member.all %} {{ member }}, {% endfor %} </td>
+      <td>{% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %} {% endfor %} </td>
       <td> {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %} {% if project.if_other_investor %} {{ project.if_other_investor }} {% endif %}</td>
 
     </tr>
@@ -91,7 +91,7 @@
       <td>{{ project.loan_Amount }}</td>
       <td>{{ project.director }}</td>
       <td> <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >{{ project.next_step }}</a></td>
-      <td>{% for member in project.member.all %} {{ member }}, {% endfor %} </td>
+      <td>{% for member in project.member.all %} {{ member }}{% if not forloop.last %}, {% endif %} {% endfor %} </td>
       <td> {% for investor in project.investor.all %} {{ investor }}{% if not forloop.last %}, {% endif %}{% endfor %} {% if project.if_other_investor %} {{ project.if_other_investor }} {% endif %}</td>
 
     </tr>
