@@ -1,22 +1,273 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h3 align="center">My Projects</h3>
-    <ul class="list-group list-group-flush">
-{% for project in project_list.all %}
- {% for member in project.member.all %}
-
+<h3 align="center">Early</h3>
+<div class="row">
+<div class="col-3">
+  <h4 align="center">Level 0</h4>
+{% for project in ds00.all %}
+{% for member in project.member.all %}
 {% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<div class="col-3">
+  <h4 align="center">Level 1</h4>
+{% for project in ds01.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<div class="col-3">
+  <h4 align="center">Level 2</h4>
+{% for project in ds02.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<div class="col-3">
+  <h4 align="center">Level 3</h4>
+{% for project in ds03.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<br>
+<hr>
+</div>
+<h3 align="center">Prospect</h3>
+<div class="row">
+<div class="col-3">
+  <h4 align="center">Level 0</h4>
+{% for project in ds10.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<div class="col-3">
+  <h4 align="center">Level 1</h4>
+{% for project in ds11.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<div class="col-3">
+  <h4 align="center">Level 2</h4>
+{% for project in ds12.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+<div class="col-3">
+  <h4 align="center">Level 3</h4>
+{% for project in ds13.all %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+        <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </li>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+</div>
+</div>
+<br>
+<hr>
+<div class="row">
 
+     <div class="col-sm-6">
 
+         <h3 align="center">Underwriting Stage</h3>
+
+ {% if ds2 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds2 %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
           <li class="list-group-item">
-          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> - {{ project.next_step }} Loan Amount: {{ project.loan_Amount }} | {{ project.dealstage }}  |
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
+          </li>
+  {% endif %}
+ {% endfor %}
+        {% endfor %}
+
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+     </div>
+  <div class="col-sm-6 ">
+
+         <h3 align="center">TS Issued</h3>
+ {% if ds3 %}
+
+         <ul class="list-group list-group-flush">
+          {% for project in ds3 %}
+              {% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
 
           </li>
+                   {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+      {% endif %}
+     </div>
+
+</div>
+    <br>
+<div class="row">
+
+     <div class="col-sm-6">
+
+         <h3 align="center">TS Closure</h3>
+
+ {% if ds4 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds4 %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
+          </li>
+     {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+     </div>
+  <div class="col-sm-6 ">
+
+         <h3 align="center">Documentation</h3>
+ {% if ds5 %}
+
+         <ul class="list-group list-group-flush">
+          {% for project in ds5 %}
+              {% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
+
+          </li>
+                   {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+      {% endif %}
+     </div>
+
+</div>
+<br><hr>
+<div class="row">
+
+     <div class="col-sm-6">
+
+         <h3 align="center">On Hold</h3>
+
+ {% if ds6 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds4 %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
+          </li>
+     {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+     </div>
+  <div class="col-sm-6 ">
+
+         <h3 align="center">Lost</h3>
+ {% if ds7 %}
+
+         <ul class="list-group list-group-flush">
+          {% for project in ds5 %}
+              {% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
+
+          </li>
+                   {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+      {% endif %}
+     </div>
+
+</div>
+<br><hr>
 
 
- {% endif %}
-     {% endfor %}
-{% endfor %}
-     </ul>
+
 {% endblock %}

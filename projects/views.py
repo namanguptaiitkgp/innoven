@@ -43,30 +43,46 @@ def Search(request):
     return render(request, 'projects/search_projects.html' , context = context)
 
 def Engprojects(request):
-    result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0") & Q(overall_Status__name="Active") )
+    result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1") & Q(overall_Status__name="Active") )
+    result2 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 2") & Q(overall_Status__name="Active") )
+    result3 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 3") & Q(overall_Status__name="Active") )
     context = {'project_list0': result0, 'project_list1': result1, 'project_list2': result2, 'project_list3': result3}
 
     return render(request, 'projects/engagement_projects.html', context=context)
 
 
-def Allprojects(request):
-    ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-
-    context = {'ds0':ds0,'ds1':ds1,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5}
-    return render(request, 'projects/all_projects.html' , context = context)
-
 def Myprojects(request):
-    result = Project.objects.all()
-    context = {'project_list':result}
-    return render(request, 'projects/my_projects.html', context=context)
+    ds00 = Project.objects.filter(Q(dealstage__name__icontains="Early")& Q(overall_Status__name="Active")  & Q(engagement__engagement_name__icontains="Level 0"))
+    ds01 = Project.objects.filter(Q(dealstage__name__icontains="Early") & Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 1"))
+    ds02 = Project.objects.filter(Q(dealstage__name__icontains="Early") & Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 2"))
+    ds03 = Project.objects.filter(Q(dealstage__name__icontains="Early") & Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 3"))
+
+    ds10 = Project.objects.filter(Q(dealstage__name__icontains="Prospect")& Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 0"))
+    ds11 = Project.objects.filter(Q(dealstage__name__icontains="Prospect") & Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 1"))
+    ds12 = Project.objects.filter(Q(dealstage__name__icontains="Prospect") & Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 2"))
+    ds13 = Project.objects.filter(Q(dealstage__name__icontains="Prospect") & Q(overall_Status__name="Active") & Q(engagement__engagement_name__icontains="Level 3"))
+
+    ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage")& Q(overall_Status__name="Active") )
+    ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued")& Q(overall_Status__name="Active") )
+    ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure")& Q(overall_Status__name="Active") )
+    ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation")& Q(overall_Status__name="Active") )
+    ds6 = Project.objects.filter(Q(overall_Status__name="On Hold"))
+    ds7 = Project.objects.filter(Q(overall_Status__name="Lost"))
+    context = {'ds00':ds00,'ds01':ds01,'ds02':ds02,'ds03':ds03,'ds10':ds10,'ds11':ds11,'ds12':ds12,'ds13':ds13,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5,'ds6':ds6,'ds7':ds7}
+    return render(request, 'projects/my_projects.html' , context = context)
+
+def Allprojects(request):
+    ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early") & Q(overall_Status__name="Active") )
+    ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect") & Q(overall_Status__name="Active") )
+    ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage") & Q(overall_Status__name="Active") )
+    ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued") & Q(overall_Status__name="Active") )
+    ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure") & Q(overall_Status__name="Active") )
+    ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation") & Q(overall_Status__name="Active") )
+    ds6 = Project.objects.filter(Q(overall_Status__name="On Hold"))
+    ds7 = Project.objects.filter(Q(overall_Status__name="Lost"))
+    context = {'ds0': ds0, 'ds1': ds1, 'ds2': ds2, 'ds3': ds3, 'ds4': ds4, 'ds5': ds5,'ds6':ds6,'ds7':ds7}
+    return render(request, 'projects/all_projects.html', context=context)
 
 def MySearch(request):
     stage = request.GET.get('mystage')
@@ -117,46 +133,88 @@ def MyKeySearch(request):
     director = request.GET.get('mydirector')
 
     if (dealstage == 'any') & (member == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(~Q(dealstage__name="Early") )
 
     elif (member == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(dealstage__name=dealstage) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(dealstage__name=dealstage)  )
 
     elif (dealstage == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(member__name=member) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(member__name=member) & ~Q(dealstage__name="Early") )
 
     elif (member == 'any') & (dealstage == 'any') & (director == 'any'):
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & ~Q(dealstage__name="Early"))
 
     elif (member == 'any') & (ostatus == 'any') & (dealstage == 'any'):
-        results = Project.objects.filter(Q(director__name=director) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(director__name=director) & ~Q(dealstage__name="Early"))
 
     elif (dealstage == 'any') & (director == 'any'):
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & ~Q(dealstage__name="Early"))
     elif (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(member__name=member) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(member__name=member) )
     elif (member == 'any') & (director == 'any'):
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member))
     elif (dealstage == 'any') & (ostatus == 'any'):
-        results = Project.objects.filter(Q(director__name=director) & Q(member__name=member) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(director__name=director) & Q(member__name=member) & ~Q(dealstage__name="Early") )
     elif (ostatus == 'any') & (member == 'any'):
-        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(director__name=director)& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(director__name=director))
     elif (member == 'any') & (dealstage == 'any'):
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(director__name=director))
     elif dealstage == 'any':
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name = director) & ~Q(dealstage__name="Early"))
     elif ostatus == 'any':
-        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(member__name=member) & Q(director__name=director) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(member__name=member) & Q(director__name=director)  )
     elif member == 'any':
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(dealstage__name=dealstage) & Q(director__name=director))
     elif director == 'any':
         results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(dealstage__name=dealstage))
     else:
-        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name=director) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name=director)  )
 
     context = {'project_list':results}
     return render(request, 'projects/search_keyprojects.html' , context = context)
 
+def MyEarlySearch(request):
+    member = request.GET.get('mymember')
+    stage = request.GET.get('mydirector')
+    engagement = request.GET.get('myengagement')
+    investor = request.GET.get('myinvestor')
+
+    Projecte = Project.objects.filter(Q(dealstage__name="Early"))
+    if (stage == 'any') & (member == 'any') & (engagement == 'any') & (investor == 'any'):
+        results = Projecte.all()
+    elif (member == 'any') & (engagement == 'any')& (investor == 'any'):
+        results = Projecte.filter(director__name=stage)
+    elif (stage == 'any') & (engagement == 'any')& (investor == 'any'):
+        results = Projecte.filter(member__name=member)
+    elif (member == 'any') & (stage == 'any')& (investor == 'any'):
+        results = Projecte.filter(engagement__engagement_name=engagement)
+    elif (member == 'any') & (engagement == 'any')& (stage == 'any'):
+        results = Projecte.filter(investor__name=investor)
+    elif (stage == 'any')& (investor == 'any') :
+        results = Projecte.filter(engagement__engagement_name=engagement,member__name=member)
+    elif (engagement == 'any') & (investor == 'any'):
+        results = Projecte.filter(director__name=stage, member__name=member)
+    elif (member == 'any')& (investor == 'any'):
+        results = Projecte.filter(engagement__engagement_name=engagement, member__name=member)
+    elif (stage == 'any')& (engagement == 'any') :
+        results = Projecte.filter(investor__name=investor,member__name=member)
+    elif (engagement == 'any') & (member == 'any'):
+        results = Projecte.filter(director__name=stage,investor__name=investor)
+    elif (member == 'any')& (stage == 'any'):
+        results = Projecte.filter(engagement__engagement_name=engagement, investor__name=investor)
+    elif stage == 'any' :
+        results = Projecte.filter(engagement__engagement_name=engagement,member__name=member, investor__name=investor)
+    elif engagement == 'any':
+        results = Projecte.filter(director__name=stage, member__name=member, investor__name=investor)
+    elif member == 'any':
+        results = Projecte.filter(engagement__engagement_name=engagement, member__name=member, investor__name=investor)
+    elif investor == 'any':
+        results = Projecte.filter(engagement__engagement_name=engagement, member__name=member,director__name=stage )
+    else:
+        results = Projecte.filter(director__name=stage, engagement__engagement_name=engagement,member__name=member,investor__name=investor)
+
+    context = {'project_list':results}
+    return render(request, 'projects/search_earlyprojects.html' , context = context)
 
 
 class ProjectListView(generic.ListView):

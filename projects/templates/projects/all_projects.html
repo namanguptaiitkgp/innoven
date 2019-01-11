@@ -126,6 +126,52 @@
      </div>
 
 </div>
-<br><br>
+<br><hr>
+<div class="row">
 
+     <div class="col-sm-6">
+
+         <h3 align="center">On Hold</h3>
+
+ {% if ds6 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds4 %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+          </li>
+     {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+     </div>
+  <div class="col-sm-6 ">
+
+         <h3 align="center">Lost</h3>
+ {% if ds7 %}
+
+         <ul class="list-group list-group-flush">
+          {% for project in ds5 %}
+              {% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+          <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for member in project.member.all %} {{ member }}, {% endfor %} Director: {{ project.director }}
+
+          </li>
+                   {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+      {% endif %}
+     </div>
+
+</div>
+<br><hr>
 {% endblock %}

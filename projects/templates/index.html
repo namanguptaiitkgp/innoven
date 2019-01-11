@@ -12,8 +12,9 @@
     <li><strong>Members:</strong> {{ num_member }}</li>
   </ul>
 To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
+</div>
 <div class="row">
-<div class="col-6">
+<div class="col-sm-4">
 <form method="get" action="{% url 'my_search' %}">
        <fieldset>
           <legend>Customized Search</legend>
@@ -83,7 +84,7 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
 
     </form>
 </div>
-<div class="col-6">
+<div class="col-sm-4">
 <form method="get" action="{% url 'my_keysearch' %}">
        <fieldset>
           <legend>Pipeline Report</legend>
@@ -152,6 +153,75 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
 
     </form>
 </div>
+<div class="col-sm-4">
+<form method="get" action="{% url 'my_earlysearch' %}">
+       <fieldset>
+          <legend>Early Stage</legend>
+       <div class="row">
+          <div class="col-sm-4">
+             <label>Investor</label>
+          </div>
+          <div class="col">
+             <select name = "myinvestor">
+             <option value = "any"> All </option>
+                  {% for investor in investor_list %}
+               <option value = "{{ investor.name }}">{{ investor.name }}</option>
+                   {% endfor %}
+
+             </select>
+          </div>
+       </div>
+     <div class="row">
+          <div class="col-sm-4">
+             <label>Engagement</label>
+           </div>
+          <div class="col">
+             <select name = "myengagement">
+             <option value = "any"> All </option>
+                  {% for engagement in engagement_list %}
+               <option value = "{{ engagement.engagement_name }}">{{ engagement.engagement_name }}</option>
+                  {% endfor %}
+
+             </select>
+          </div>
+     </div>
+          <div class="row">
+          <div class="col-sm-4">
+             <label>Member</label>
+          </div>
+            <div class="col">
+             <select name = "mymember">
+                <option value = "any"> All </option>
+                  {% for member in member_list %}
+               <option value = "{{ member.name }}">{{ member.name }}</option>
+                  {% endfor %}
+
+             </select>
+            </div>
+      </div>
+          <div class="row">
+          <div class="col-sm-4">
+             <label>Director</label>
+          </div>
+            <div class="col">
+             <select name = "mydirector">
+                <option value = "any"> All </option>
+                  {% for director in director_list %}
+               <option value = "{{ director.name }}">{{ director.name }}</option>
+                  {% endfor %}
+
+             </select>
+            </div>
+      </div>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+
+
+       </fieldset>
+
+
+    </form>
 </div>
 </div>
+
 {% endblock %}
