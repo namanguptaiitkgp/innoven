@@ -246,7 +246,7 @@
  {% if ds7 %}
 
          <ul class="list-group list-group-flush">
-          {% for project in ds5 %}
+          {% for project in ds7 %}
               {% for member in project.member.all %}
 {% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
           <li class="list-group-item">
