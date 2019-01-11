@@ -54,10 +54,10 @@ def Engprojects(request):
 def Allprojects(request):
     ds0 = Project.objects.filter(Q(dealstage__name__icontains="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     ds1 = Project.objects.filter(Q(dealstage__name__icontains="Prospect")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
-    ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage"))
-    ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued"))
-    ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure"))
-    ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation"))
+    ds2 = Project.objects.filter(Q(dealstage__name__icontains="Underwriting Stage")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
+    ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
 
     context = {'ds0':ds0,'ds1':ds1,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5}
     return render(request, 'projects/all_projects.html' , context = context)
