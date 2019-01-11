@@ -116,42 +116,42 @@ def MyKeySearch(request):
     director = request.GET.get('mydirector')
 
     if (dealstage == 'any') & (member == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(~Q(dealstage__name="Early"))
+        results = Project.objects.filter(~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
 
     elif (member == 'any') & (ostatus == 'any') & (director == 'any'):
         results = Project.objects.filter(dealstage__name=dealstage)
 
     elif (dealstage == 'any') & (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(member__name=member) & ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(member__name=member) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
 
     elif (member == 'any') & (dealstage == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) & ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
 
     elif (member == 'any') & (ostatus == 'any') & (dealstage == 'any'):
-        results = Project.objects.filter(Q(director__name=director) & ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(director__name=director) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
 
     elif (dealstage == 'any') & (director == 'any'):
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif (ostatus == 'any') & (director == 'any'):
-        results = Project.objects.filter(dealstage__name=dealstage, member__name=member)
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(member__name=member) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif (member == 'any') & (director == 'any'):
-        results = Project.objects.filter(overall_Status__name=ostatus, member__name=member)
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif (dealstage == 'any') & (ostatus == 'any'):
-        results = Project.objects.filter(Q(director__name=director) & Q(member__name=member) & ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(director__name=director) & Q(member__name=member) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif (ostatus == 'any') & (member == 'any'):
-        results = Project.objects.filter(dealstage__name=dealstage, director__name=director)
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(director__name=director)& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif (member == 'any') & (dealstage == 'any'):
-        results = Project.objects.filter(overall_Status__name=ostatus, director__name=director)
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(director__name=director)& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif dealstage == 'any':
-        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name = director) & ~Q(dealstage__name="Early"))
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name = director) & ~Q(dealstage__name="Early")& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif ostatus == 'any':
-        results = Project.objects.filter(dealstage__name=dealstage, member__name=member, director__name=director)
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(member__name=member) & Q(director__name=director) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif member == 'any':
-        results = Project.objects.filter(overall_Status__name=ostatus, member__name=member, director__name=director)
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name=director) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     elif director == 'any':
-        results = Project.objects.filter(overall_Status__name=ostatus, member__name=member, dealstage__name=dealstage)
+        results = Project.objects.filter(Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(dealstage__name=dealstage)& ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     else:
-        results = Project.objects.filter(dealstage__name=dealstage, overall_Status__name=ostatus, member__name=member,director__name=director)
+        results = Project.objects.filter(Q(dealstage__name=dealstage) & Q(overall_Status__name=ostatus) & Q(member__name=member) & Q(director__name=director) & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
 
     context = {'project_list':results}
     return render(request, 'projects/search_keyprojects.html' , context = context)
