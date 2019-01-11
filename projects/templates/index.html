@@ -23,10 +23,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
           <div class="col">
              <select name = "mystage">
+             <option value = "any"> All </option>
                   {% for stage in stage_list %}
                <option value = "{{ stage.stage_name }}">{{ stage.stage_name }}</option>
                    {% endfor %}
-              <option value = "any"> Any </option>
+
              </select>
           </div>
        </div>
@@ -36,10 +37,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
           <div class="col">
              <select name = "myinvestor">
+             <option value = "any"> All </option>
                   {% for investor in investor_list %}
                <option value = "{{ investor.name }}">{{ investor.name }}</option>
                    {% endfor %}
-              <option value = "any"> Any </option>
+
              </select>
           </div>
        </div>
@@ -49,10 +51,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
            </div>
           <div class="col">
              <select name = "myengagement">
+             <option value = "any"> All </option>
                   {% for engagement in engagement_list %}
                <option value = "{{ engagement.engagement_name }}">{{ engagement.engagement_name }}</option>
                   {% endfor %}
-              <option value = "any"> Any </option>
+
              </select>
           </div>
      </div>
@@ -62,10 +65,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
             <div class="col">
              <select name = "mymember">
+                <option value = "any"> All </option>
                   {% for member in member_list %}
                <option value = "{{ member.name }}">{{ member.name }}</option>
                   {% endfor %}
-                 <option value = "any"> Any </option>
+
              </select>
             </div>
       </div>
@@ -89,10 +93,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
           <div class="col">
              <select name = "mydealstage">
+             <option value = "any"> All </option>
                   {% for stage in dealstage_list %}
                <option value = "{{ stage.name }}">{{ stage.name }}</option>
                    {% endfor %}
-              <option value = "any"> Any </option>
+
              </select>
           </div>
        </div>
@@ -102,10 +107,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
           <div class="col">
              <select name = "myostatus">
+             <option value = "any"> All </option>
                   {% for ostatus in ostatus_list %}
                <option value = "{{ ostatus.name }}">{{ ostatus.name }}</option>
                    {% endfor %}
-              <option value = "any"> Any </option>
+
              </select>
           </div>
        </div>
@@ -115,10 +121,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
             <div class="col">
              <select name = "mymember">
+                <option value = "any"> All </option>
                   {% for member in member_list %}
                <option value = "{{ member.name }}">{{ member.name }}</option>
                   {% endfor %}
-                 <option value = "any"> Any </option>
+
              </select>
             </div>
       </div>
@@ -128,10 +135,11 @@ To create TAT track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
           </div>
             <div class="col">
              <select name = "mydirector">
+                <option value = "any"> All </option>
                   {% for director in director_list %}
                <option value = "{{ director.name }}">{{ director.name }}</option>
                   {% endfor %}
-                 <option value = "any"> Any </option>
+
              </select>
             </div>
       </div>

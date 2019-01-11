@@ -41,6 +41,7 @@ def Search(request):
     results = Project.objects.filter(Q(description__icontains=query) |Q(sector__name__icontains=query) |  Q(name__icontains=query) | Q(competitor__name__icontains=query) | Q(investor__name__icontains=query) | Q(partner__name__icontains=query)).distinct()
     context = {'project_list':results}
     return render(request, 'projects/search_projects.html' , context = context)
+
 def Engprojects(request):
     result0 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 0") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
     result1 = Project.objects.filter(Q(engagement__engagement_name__icontains="Level 1") & ~Q(overall_Status__name="Lost") & ~Q(overall_Status__name="Funded-Full"))
