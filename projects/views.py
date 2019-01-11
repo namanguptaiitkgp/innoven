@@ -18,6 +18,8 @@ def index(request):
     engagement = Engagement.objects.all()
     num_member = Member.objects.all().count()
     investor = Investor.objects.all()
+    sector = Sector.objects.all()
+
     context = {
         'num_projects': num_projects,
         'num_member':num_member,
@@ -28,6 +30,7 @@ def index(request):
         'investor_list':investor,
         'dealstage_list':dealstage,
         'ostatus_list':ostatus,
+        'sector_list': sector,
     }
 
     # Render the HTML template index.html with the data in the context variable
@@ -189,7 +192,7 @@ def MyEarlySearch(request):
     elif (member == 'any') & (stage == 'any')& (investor == 'any'):
         results = Projecte.filter(engagement__engagement_name=engagement)
     elif (member == 'any') & (engagement == 'any')& (stage == 'any'):
-        results = Projecte.filter(investor__name=investor)
+        results = Projecte.filter(sector__name=investor)
     elif (stage == 'any')& (investor == 'any') :
         results = Projecte.filter(engagement__engagement_name=engagement,member__name=member)
     elif (engagement == 'any') & (investor == 'any'):
@@ -197,21 +200,21 @@ def MyEarlySearch(request):
     elif (member == 'any')& (investor == 'any'):
         results = Projecte.filter(engagement__engagement_name=engagement, member__name=member)
     elif (stage == 'any')& (engagement == 'any') :
-        results = Projecte.filter(investor__name=investor,member__name=member)
+        results = Projecte.filter(sector__name=investor,member__name=member)
     elif (engagement == 'any') & (member == 'any'):
-        results = Projecte.filter(director__name=stage,investor__name=investor)
+        results = Projecte.filter(director__name=stage,sector__name=investor)
     elif (member == 'any')& (stage == 'any'):
-        results = Projecte.filter(engagement__engagement_name=engagement, investor__name=investor)
+        results = Projecte.filter(engagement__engagement_name=engagement, sector__name=investor)
     elif stage == 'any' :
-        results = Projecte.filter(engagement__engagement_name=engagement,member__name=member, investor__name=investor)
+        results = Projecte.filter(engagement__engagement_name=engagement,member__name=member, sector__name=investor)
     elif engagement == 'any':
-        results = Projecte.filter(director__name=stage, member__name=member, investor__name=investor)
+        results = Projecte.filter(director__name=stage, member__name=member, sector__name=investor)
     elif member == 'any':
-        results = Projecte.filter(engagement__engagement_name=engagement, member__name=member, investor__name=investor)
+        results = Projecte.filter(engagement__engagement_name=engagement, member__name=member, sector__name=investor)
     elif investor == 'any':
         results = Projecte.filter(engagement__engagement_name=engagement, member__name=member,director__name=stage )
     else:
-        results = Projecte.filter(director__name=stage, engagement__engagement_name=engagement,member__name=member,investor__name=investor)
+        results = Projecte.filter(director__name=stage, engagement__engagement_name=engagement,member__name=member,sector__name=investor)
 
     context = {'project_list':results}
     return render(request, 'projects/search_earlyprojects.html' , context = context)
