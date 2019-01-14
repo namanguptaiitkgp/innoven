@@ -180,7 +180,7 @@ class Project(models.Model):
     source = models.ForeignKey('Source',  on_delete=models.SET_NULL, null=True)
     dealstage = models.ForeignKey('DealStage', on_delete=models.SET_NULL, null=True)
     overall_Status = models.ForeignKey('OStatus', on_delete=models.SET_NULL, null=True)
-    funding_Satge = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
+    funding_Stage = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
     engagement = models.ForeignKey('Engagement', on_delete=models.SET_NULL, null=True)
     next_step =  models.CharField(max_length=500,blank=True)
     closure_month = models.CharField(max_length=10,blank=True)

@@ -32,22 +32,21 @@
     </div>
 </div>
 </p>
-    <p><strong>Next Step:</strong> {{ project.next_step}} <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >Update</a></p>
-    <p><strong>Business Description:</strong> {{ project.description }}</p>
 <p>
 <div class="row">
     <div class="col-sm-3">
         <strong>Equity LTD:</strong>  {{ project.equity_LTD }}
     </div>
-    <div class="col-sm-4">
+  {% if project.last_round %}  <div class="col-sm-4">
         <strong>Last round Fund:</strong> {{ project.last_round }}
-    </div>
+    </div>{% endif %}{% if project.valutaion %}
     <div class="col-sm-5">
             <strong>Valuation:</strong> {{ project.valutaion }}
-    </div>
+    </div>{% endif %}
 </div>
 </p>
-
+    <p><strong>Next Step:</strong> {{ project.next_step}} <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >Update</a></p>
+    <p><strong>Business Description:</strong> {{ project.description }}</p>
 {% if project.loan_Amount %}
      <p><strong>Loan Amount:</strong> {{ project.loan_Amount }}</p>
 {% else %} {% endif %}
