@@ -8,25 +8,37 @@
 
 <p>
 <div class="row">
-    <div class="col-3">
+    <div class="col-sm-3">
         <strong>Date:</strong> {{ project.date }}, {{ project.city }}
     </div>
-    <div class="col-4">
+    <div class="col-sm-4">
         <strong>Sectors:</strong> {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %}
     </div>
-    <div class="col-5">
+    <div class="col-sm-5">
             <strong>  Engagement:</strong> {{ project.engagement }} | Overall Status:<strong> {{ project.overall_Status }}</strong>
     </div>
 </div>
 </p>
-    <p><strong>Last Updated:</strong> {{ project.updated_at}} | <strong>Deal Stage:</strong> {{ project.dealstage }}</p>
+<p>
+<div class="row">
+    <div class="col-sm-3">
+        <strong>Last Updated:</strong> {{ project.updated_at}}
+    </div>
+    <div class="col-sm-4">
+        <strong>Source</strong> {{ project.source }}
+    </div>
+    <div class="col-sm-5">
+          <strong>Deal Stage:</strong> {{ project.dealstage }}
+    </div>
+</div>
+</p>
     <p><strong>Next Step:</strong> {{ project.next_step}} <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >Update</a></p>
     <p><strong>Business Description:</strong> {{ project.description }}</p>
       <p><strong>Equity LTD:</strong>  {{ project.equity_LTD }}</p>
 {% if project.loan_Amount %}
      <p><strong>Loan Amount:</strong> {{ project.loan_Amount }}</p>
 {% else %} {% endif %}
-    <p><strong>Funding Stage:</strong> {{ project.funding_Round }}. Investors are {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+    <p><strong>Funding Stage:</strong> {{ project.funding_Stage }}. Investors are {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
       {% if project.if_other_investor %}
     , {{ project.if_other_investor }}
 {% else %} {% endif %}

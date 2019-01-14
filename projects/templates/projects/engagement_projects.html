@@ -15,7 +15,7 @@
          <ul class="list-group list-group-flush">
           {% for project in project_list0 %}
           <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Round}}
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Stage}}
           </li>
         {% endfor %}
         </ul>
@@ -31,7 +31,7 @@
          <ul class="list-group list-group-flush card">
           {% for project in project_list1 %}
            <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Round}}
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Stage}}
           </li>
         {% endfor %}
         </ul>
@@ -48,7 +48,7 @@
          <ul class="list-group list-group-flush card">
           {% for project in project_list2 %}
           <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Round}}
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Stage}}
           </li>
         {% endfor %}
         </ul>
@@ -64,7 +64,7 @@
          <ul class="list-group list-group-flush card">
           {% for project in project_list3 %}
           <li class="list-group-item">
-           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Round}}
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {{project.funding_Stage}}
           </li>
         {% endfor %}
         </ul>

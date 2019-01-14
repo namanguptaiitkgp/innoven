@@ -180,7 +180,7 @@ class Project(models.Model):
     source = models.ForeignKey('Source',  on_delete=models.SET_NULL, null=True)
     dealstage = models.ForeignKey('DealStage', on_delete=models.SET_NULL, null=True)
     overall_Status = models.ForeignKey('OStatus', on_delete=models.SET_NULL, null=True)
-    funding_Round = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
+    funding_Satge = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
     engagement = models.ForeignKey('Engagement', on_delete=models.SET_NULL, null=True)
     next_step =  models.CharField(max_length=500,blank=True)
     closure_month = models.CharField(max_length=10,blank=True)
@@ -191,8 +191,8 @@ class Project(models.Model):
     investor = models.ManyToManyField(Investor, blank=True)
     if_other_investor = models.CharField(max_length=100, blank=True)
     partner = models.ManyToManyField(Partner, blank=True, help_text='Only Select partners relevant to this engagement')
-    competitor = models.ManyToManyField(VDcomp, help_text='Leave blank if you dont know the loan amount yet.')
-    loan_Amount = models.CharField(max_length=50, blank=True)
+    competitor = models.ManyToManyField(VDcomp)
+    loan_Amount = models.CharField(max_length=50, blank=True, help_text='Leave blank if you dont know the loan amount yet.')
 
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
