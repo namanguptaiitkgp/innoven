@@ -65,7 +65,12 @@
 <h4>Dropped</h4>
 
 <dl>
-
+{% for pcompanies in partner.pcompanies_set.all %}
+      {% if pcompanies.current_status.name == "Dropped" %}
+  <dt><a href="{% url 'pcompanies_update' pcompanies.pk %}" >{{pcompanies}}</a></dt>
+   <dd>{% for partner in pcompanies.investor.all %}<a href="{% url 'investor-detail' partner.pk %}" style="color: black;">{{ partner }}</a> {% if not forloop.last %}, {% endif %} {% endfor %}</dd>
+     {% endif %}
+{% endfor %}
 {% for project in partner.project_set.all %}
     {% if project.overall_Status.name == "Dropped" %}
   <dt><a href="{% url 'project-detail' project.pk %}">{{project}}</a> </dt>

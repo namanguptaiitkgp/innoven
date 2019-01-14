@@ -188,6 +188,8 @@ class Project(models.Model):
     date = models.DateField(null=True, blank=True, auto_now_add=True)
     description = models.CharField(max_length=500,blank=True)
     equity_LTD = models.CharField(max_length=100,blank=True)
+    last_round = models.CharField(max_length=100, blank=True)
+    valuation = models.CharField(max_length=100, blank=True)
     investor = models.ManyToManyField(Investor, blank=True)
     if_other_investor = models.CharField(max_length=100, blank=True)
     partner = models.ManyToManyField(Partner, blank=True, help_text='Only Select partners relevant to this engagement')
@@ -221,6 +223,7 @@ class Pcompanies(models.Model):
     investor = models.ManyToManyField(Investor,  blank=True)
     partner = models.ManyToManyField(Partner, blank=True)
     current_status = models.ForeignKey('Currents', on_delete=models.SET_NULL, null=True)
+    remark = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         """String for representing the Model object."""

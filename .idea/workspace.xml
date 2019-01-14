@@ -33,24 +33,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/templates/projects/all_projects.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="763">
-              <caret line="137" column="31" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/templates/projects/dsdate_form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -60,9 +42,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/templates/projects/search_earlyprojects.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3840">
+            <state relative-caret-position="-2788">
               <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
               <caret line="108" column="54" selection-start-line="108" selection-start-column="54" selection-end-line="108" selection-end-column="54" />
               <caret line="114" column="54" selection-start-line="114" selection-start-column="54" selection-end-line="114" selection-end-column="54" />
@@ -77,10 +68,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/templates/projects/investor_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/templates/projects/project_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1597">
-              <caret line="189" column="60" selection-start-line="189" selection-start-column="60" selection-end-line="189" selection-end-column="60" />
+            <state relative-caret-position="958">
+              <caret line="226" selection-start-line="226" selection-end-line="226" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -89,13 +98,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/forms.py">
+        <entry file="file://$PROJECT_DIR$/projects/templates/projects/partner_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="111">
+              <caret line="68" column="54" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -112,7 +118,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/templates/projects/my_projects.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12">
+            <state relative-caret-position="3808">
               <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
             </state>
           </provider>
@@ -121,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/templates/base_generic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="36" column="77" lean-forward="true" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
+            <state relative-caret-position="612">
+              <caret line="36" column="77" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -207,21 +213,21 @@
         <option value="$PROJECT_DIR$/projects/admin.py" />
         <option value="$PROJECT_DIR$/projects/templates/projects/pcompanies_form.html" />
         <option value="$PROJECT_DIR$/projects/templates/base_generic.html" />
-        <option value="$PROJECT_DIR$/projects/templates/projects/investor_detail.html" />
-        <option value="$PROJECT_DIR$/projects/templates/projects/partner_detail.html" />
         <option value="$PROJECT_DIR$/projects/urls.py" />
         <option value="$PROJECT_DIR$/projects/templates/projects/all_projects.html" />
-        <option value="$PROJECT_DIR$/projects/templates/projects/search_earlyprojects.html" />
         <option value="$PROJECT_DIR$/projects/templates/projects/search_keyprojects.html" />
-        <option value="$PROJECT_DIR$/projects/templates/projects/project_detail.html" />
         <option value="$PROJECT_DIR$/projects/views.py" />
         <option value="$PROJECT_DIR$/projects/templates/projects/engagement_projects.html" />
-        <option value="$PROJECT_DIR$/projects/models.py" />
         <option value="$PROJECT_DIR$/projects/templates/projects/search_projects.html" />
         <option value="$PROJECT_DIR$/projects/templates/projects/my_projects.html" />
         <option value="$PROJECT_DIR$/projects/forms.py" />
         <option value="$PROJECT_DIR$/projects/templates/index.html" />
         <option value="$PROJECT_DIR$/projects/templates/projects/dsdate_form.html" />
+        <option value="$PROJECT_DIR$/projects/templates/projects/search_earlyprojects.html" />
+        <option value="$PROJECT_DIR$/projects/templates/projects/investor_detail.html" />
+        <option value="$PROJECT_DIR$/projects/templates/projects/partner_detail.html" />
+        <option value="$PROJECT_DIR$/projects/models.py" />
+        <option value="$PROJECT_DIR$/projects/templates/projects/project_detail.html" />
       </list>
     </option>
   </component>
@@ -236,6 +242,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,7 +294,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,16 +371,18 @@
       <workItem from="1547012708457" duration="23791000" />
       <workItem from="1547108409784" duration="25771000" />
       <workItem from="1547441847714" duration="3504000" />
+      <workItem from="1547466063752" duration="743000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89308000" />
+    <option name="totallyTimeSpent" value="90051000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25189108" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17019667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -388,7 +396,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.33224222" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" visible="true" weight="0.2618658" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" visible="true" weight="0.111292966" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -570,31 +578,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/investor_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="133" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/search_earlyprojects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/templates/projects/search_keyprojects.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/project_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="40" column="63" selection-start-line="40" selection-start-column="63" selection-end-line="40" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -605,6 +592,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/all_projects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="137" column="31" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/templates/projects/search_projects.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -612,23 +623,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/partner_detail.html">
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/my_projects.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="39" column="71" selection-start-line="39" selection-start-column="71" selection-end-line="39" selection-end-column="71" />
+        <state relative-caret-position="3808">
+          <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/all_projects.html">
+    <entry file="file://$PROJECT_DIR$/projects/templates/base_generic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="137" column="31" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+        <state relative-caret-position="612">
+          <caret line="36" column="77" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/dsdate_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/search_earlyprojects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3840">
+        <state relative-caret-position="-2788">
           <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
           <caret line="108" column="54" selection-start-line="108" selection-start-column="54" selection-end-line="108" selection-end-column="54" />
           <caret line="114" column="54" selection-start-line="114" selection-start-column="54" selection-end-line="114" selection-end-column="54" />
@@ -641,51 +666,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/investor_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/partner_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="68" column="54" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1597">
-          <caret line="189" column="60" selection-start-line="189" selection-start-column="60" selection-end-line="189" selection-end-column="60" />
+        <state relative-caret-position="958">
+          <caret line="226" selection-start-line="226" selection-end-line="226" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/forms.py">
+    <entry file="file://$PROJECT_DIR$/projects/templates/projects/project_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/my_projects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/base_generic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="36" column="77" lean-forward="true" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/templates/projects/dsdate_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        <state relative-caret-position="220">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
         </state>
       </provider>
     </entry>
