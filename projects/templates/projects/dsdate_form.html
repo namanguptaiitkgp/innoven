@@ -1,9 +1,11 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+    <h4>TAT</h4>
 <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
-    Format - DD/MM/YYYY
+
         {{ form.as_p }}
+        Format - DD/MM/YYYY
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
