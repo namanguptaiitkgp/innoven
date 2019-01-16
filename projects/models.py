@@ -195,6 +195,7 @@ class Project(models.Model):
     partner = models.ManyToManyField(Partner, blank=True, help_text='Only Select partners relevant to this engagement')
     competitor = models.ManyToManyField(VDcomp)
     loan_Amount = models.CharField(max_length=50, blank=True, help_text='Leave blank if you dont know the loan amount yet.')
+    past_loans = models.CharField(max_length=50, blank=True, help_text='If any past loans have been done.')
 
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
