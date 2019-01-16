@@ -50,6 +50,9 @@
 {% if project.loan_Amount %}
      <p><strong>Loan Amount:</strong> {{ project.loan_Amount }}</p>
 {% else %} {% endif %}
+{% if project.loan_Amount %}
+     <p><strong>Past Loans:</strong> {{ project.past_loans }}</p>
+{% else %} {% endif %}
     <p><strong>Funding Stage:</strong> {{ project.funding_Stage }}. Investors are {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
       {% if project.if_other_investor %}
     , {{ project.if_other_investor }}
