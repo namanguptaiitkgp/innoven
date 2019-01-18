@@ -216,6 +216,34 @@
 <br><hr>
 <div class="row">
 
+
+         <h3 align="center">Portfolio</h3>
+
+ {% if ds51 %}
+         <ul class="list-group list-group-flush">
+          {% for project in ds51 %}
+{% for member in project.member.all %}
+{% if  request.user.first_name  in member.name or request.user.first_name in project.director.name %}
+          <li class="list-group-item">
+           <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> | {% for sector in project.sector.all %} {{ sector }}{% if not forloop.last %}, {% endif %}{% endfor %} | {% for investor in project.investor.all %}<a href="{% url 'investor-detail' investor.pk %}" > {{ investor }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      {% if project.if_other_investor %}
+    , {{ project.if_other_investor }}
+{% else %} {% endif %}
+          </li>
+     {% endif %}
+ {% endfor %}
+        {% endfor %}
+        </ul>
+
+      {% else %}
+
+      {% endif %}
+
+</div>
+<br><hr>
+
+<div class="row">
+
      <div class="col-sm-6">
 
          <h3 align="center">On Hold</h3>
