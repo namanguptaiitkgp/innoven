@@ -70,9 +70,10 @@ def Myprojects(request):
     ds3 = Project.objects.filter(Q(dealstage__name__icontains="TS Issued")& Q(overall_Status__name="Active") )
     ds4 = Project.objects.filter(Q(dealstage__name__icontains="TS Closure")& Q(overall_Status__name="Active") )
     ds5 = Project.objects.filter(Q(dealstage__name__icontains="Documentation")& Q(overall_Status__name="Active") )
+    ds51 = Project.objects.filter(Q(overall_Status__name="Funded-Full") | Q(overall_Status__name="Funded-Part") | Q(overall_Status__name="Paid Off"))
     ds6 = Project.objects.filter(Q(overall_Status__name="On Hold"))
     ds7 = Project.objects.filter(Q(overall_Status__name="Lost"))
-    context = {'ds00':ds00,'ds01':ds01,'ds02':ds02,'ds03':ds03,'ds10':ds10,'ds11':ds11,'ds12':ds12,'ds13':ds13,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5,'ds6':ds6,'ds7':ds7}
+    context = {'ds00':ds00,'ds01':ds01,'ds02':ds02,'ds03':ds03,'ds10':ds10,'ds11':ds11,'ds12':ds12,'ds13':ds13,'ds2':ds2,'ds3':ds3,'ds4':ds4,'ds5':ds5,'ds51':ds51,'ds6':ds6,'ds7':ds7}
     return render(request, 'projects/my_projects.html' , context = context)
 
 def Allprojects(request):
