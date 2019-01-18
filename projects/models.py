@@ -186,7 +186,7 @@ class Project(models.Model):
     closure_month = models.CharField(max_length=10,blank=True)
     updated_at = models.DateField(null=True, blank=True, auto_now = True)
     date = models.DateField(null=True, blank=True, auto_now_add=True)
-    description = models.CharField(max_length=500,blank=True)
+    description = models.CharField(max_length=1000,blank=True)
     equity_LTD = models.CharField(max_length=100,blank=True)
     last_round = models.CharField(max_length=100, blank=True)
     valuation = models.CharField(max_length=100, blank=True)
