@@ -3,7 +3,7 @@
 {% block content %}
     <center>
     {% load static %} <img src="{% static 'innovenlogo2018.png' %}" class="img-fluid" alt="Responsive image" style="max-height: 40px">
-  <p>Welcome to the CRM Library, owned by <em>InnoVen Capital</em>!</p></center>
+  <p>Welcome to the CRM Library, <em>{{ user.first_name }}</em>!</p></center>
 <div class="container">
   <h4>Record details</h4>
   <p>The library has the following record counts:</p>
@@ -224,5 +224,5 @@ To create TAT (turn around time) track of a company <a href="{% url 'ds_nw' %}">
     </form>
 </div>
 </div>
-
+<br>
 {% endblock %}

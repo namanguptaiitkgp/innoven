@@ -20,12 +20,13 @@
    color: white;
    text-align: center;
 }
+
 </style>
 
 </head>
-<body  style="background-color: beige">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="{% url 'index' %}"><i class="fas fa-home" style="color:white;"></i> CRM</a>
+<body  style="background-color: #faf9f5">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;  box-shadow: 2px 2px 10px rgba(0,0,0,.4); z-index: 8;">
+   <a class="navbar-brand" href="{% url 'index' %}"><i class="fas fa-home" style="color:black;"></i> CRM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -40,22 +41,22 @@
        <a class="nav-link" href="{% url 'my_projects' %}">My Projects  </a>
       </li>
      <li class="nav-item active">
-       <a class="nav-link" href="{% url 'eng_projects' %}">Engagements</a>
-      </li>
-     <li class="nav-item active">
        <a class="nav-link" href="{% url 'project_create' %}" > Add Project </a>
       </li>
-      <li class="nav-item active">
-       <a class="nav-link" href="{% url 'pcompanies_create' %}" target="_blank" > Add Companies</a>
+     <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Other
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'eng_projects' %}">Engagements</a>
+          <a class="dropdown-item" href="{% url 'pcompanies_create' %}" target="_blank" > Add Companies</a>
+          <a class="dropdown-item" href="{% url 'partner' %}">Partners</a>
+          <a class="dropdown-item"  href="{% url 'investor' %}">Investors</a>
+        </div>
       </li>
-     <li class="nav-item active">
-       <a class="nav-link" href="{% url 'partner' %}">Partners</a>
-      </li>
-     <li class="nav-item active">
-       <a class="nav-link" href="{% url 'investor' %}">Investors</a>
-      </li>
+
       {% if user.is_authenticated %}
-          <li class="nav-item"><a class="nav-link disabled" href="#">User: {{ user.get_username }}</a> </li>
+
         <li class="nav-item active"><a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
       {% else %}
         <li class="nav-item active"><a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
