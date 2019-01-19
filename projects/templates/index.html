@@ -3,13 +3,14 @@
 {% block content %}
     <center>
     {% load static %} <img src="{% static 'innovenlogo2018.png' %}" class="img-fluid" alt="Responsive image" style="max-height: 40px">
-  <p>Welcome to the CRM Library, <em>{{ user.first_name }}</em>!</p></center>
+  <p>Welcome to the CRM Library <em>{{ user.first_name }}</em>!</p></center>
 <div class="container">
-  <h4>Record details</h4>
-  <p>The library has the following record counts:</p>
+  <h4>Company Records</h4>
+  <p>CRM has the following record counts:</p>
   <ul>
     <li><strong>Total Projects:</strong> {{ num_projects }}</li>
-    <li><strong>Members:</strong> {{ num_member }}</li>
+    <li><strong>Portfolio Companies:</strong> {{ num_portfolio }}</li>
+    <li><strong>Early Stage Companies:</strong> {{ num_earlyprojects }}</li>
   </ul>
 To create TAT (turn around time) track of a company <a href="{% url 'ds_nw' %}">click here</a><br>
 </div>

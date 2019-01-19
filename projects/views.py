@@ -9,6 +9,7 @@ def index(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
+    num_earlyprojects = Project.objects.filter(Q(dealstage__name__icontains="Early")).count()
     num_projects = Project.objects.all().count()
     stage = Stage.objects.all()
     dealstage = DealStage.objects.filter(~Q(name="Early"))
@@ -16,13 +17,14 @@ def index(request):
     member = Member.objects.all()
     director = Director.objects.all()
     engagement = Engagement.objects.all()
-    num_member = Member.objects.all().count()
+    num_portfolio = Project.objects.filter(Q(overall_Status__name="Funded-Full") | Q(overall_Status__name="Funded-Part") | Q(overall_Status__name="Paid Off")).count()
     investor = Investor.objects.all()
     sector = Sector.objects.all()
 
     context = {
         'num_projects': num_projects,
-        'num_member':num_member,
+        'num_earlyprojects': num_earlyprojects,
+        'num_portfolio':num_portfolio,
         'stage_list':stage,
         'member_list':member,
         'director_list': director,
