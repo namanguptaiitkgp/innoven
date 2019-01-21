@@ -173,7 +173,7 @@ class Partner(models.Model):
 class Project(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=5000, blank=True)
+    description = models.TextField(max_length=2000, blank=True)
     city = models.ForeignKey('Location', on_delete=models.SET_NULL, null=True)
     sector = models.ManyToManyField(Sector)
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -196,7 +196,7 @@ class Project(models.Model):
     competitor = models.ManyToManyField(VDcomp)
     loan_Amount = models.CharField(max_length=50, blank=True, help_text='Leave blank if you dont know the loan amount yet.')
     past_loans = models.CharField(max_length=200, blank=True, help_text='If any past loans have been done.')
-
+    similar_companies = models.TextField(max_length=500, blank=True, help_text='Any Competition ?')
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.

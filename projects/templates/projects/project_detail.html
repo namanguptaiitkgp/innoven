@@ -48,6 +48,9 @@
     <p><strong>Next Step:</strong> {{ project.next_step}} <a href="{% url 'projectn_update' project.pk %}"  target="_blank" >Update</a></p>
     <p><strong>Business Description:</strong> {{ project.description }}</p>
 {% if project.loan_Amount %}
+     <p><strong>Similar companies:</strong> {{ project.similar_companies}}</p>
+{% else %} {% endif %}
+{% if project.loan_Amount %}
      <p><strong>Loan Amount:</strong> {{ project.loan_Amount }}</p>
 {% else %} {% endif %}
 {% if project.loan_Amount %}
