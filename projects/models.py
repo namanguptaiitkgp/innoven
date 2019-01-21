@@ -79,7 +79,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 class Dialouge(models.Model):
     project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True)
-    comment = models.CharField(max_length=200)
+    comment = models.TextField(max_length=1000)
     date = models.DateField(null=True, blank=True, auto_now=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
@@ -183,7 +183,7 @@ class Project(models.Model):
     overall_Status = models.ForeignKey('OStatus', on_delete=models.SET_NULL, null=True)
     funding_Stage = models.ForeignKey('Stage', on_delete=models.SET_NULL, null=True)
     engagement = models.ForeignKey('Engagement', on_delete=models.SET_NULL, null=True)
-    next_step =  models.CharField(max_length=500,blank=True)
+    next_step =  models.TextField(max_length=500,blank=True)
     closure_month = models.CharField(max_length=10,blank=True)
     updated_at = models.DateField(null=True, blank=True, auto_now = True)
     date = models.DateField(null=True, blank=True, auto_now_add=True)
