@@ -173,6 +173,7 @@ class Partner(models.Model):
 class Project(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=5000, blank=True)
     city = models.ForeignKey('Location', on_delete=models.SET_NULL, null=True)
     sector = models.ManyToManyField(Sector)
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -186,7 +187,6 @@ class Project(models.Model):
     closure_month = models.CharField(max_length=10,blank=True)
     updated_at = models.DateField(null=True, blank=True, auto_now = True)
     date = models.DateField(null=True, blank=True, auto_now_add=True)
-    description = models.CharField(max_length=1000,blank=True)
     equity_LTD = models.CharField(max_length=100,blank=True)
     last_round = models.CharField(max_length=100, blank=True)
     valuation = models.CharField(max_length=100, blank=True)
@@ -195,7 +195,7 @@ class Project(models.Model):
     partner = models.ManyToManyField(Partner, blank=True, help_text='Only Select partners relevant to this engagement')
     competitor = models.ManyToManyField(VDcomp)
     loan_Amount = models.CharField(max_length=50, blank=True, help_text='Leave blank if you dont know the loan amount yet.')
-    past_loans = models.CharField(max_length=50, blank=True, help_text='If any past loans have been done.')
+    past_loans = models.CharField(max_length=200, blank=True, help_text='If any past loans have been done.')
 
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
